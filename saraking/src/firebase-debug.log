@@ -1,0 +1,21 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/7.4.0/bin/node /usr/local/bin/firebase deploy
+[debug] CLI Version:  3.3.0
+[debug] Platform:     darwin
+[debug] Node Version: v7.4.0
+[debug] Time:         Sun May 21 2017 16:38:00 GMT-0600 (MDT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/sara-king  
+ Sun May 21 2017 16:38:00 GMT-0600 (MDT)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/sara-king/tokens  
+ Sun May 21 2017 16:38:00 GMT-0600 (MDT)
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'sara-king'...
+[info] 
+[info] i  deploying hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing public directory for upload...
