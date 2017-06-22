@@ -12,8 +12,7 @@ header,
 /*Intro*/
 
 #box-color {
-  background-color: #D2D2D2;
-  border-style: solid;
+  background-color: #ECF3FF;
 }
 
 @media (max-width: 768px) {
@@ -24,12 +23,8 @@ header,
     }
 }
 
-#card {
-  padding-bottom: 10px;
-}
-
 .description {
-    padding-top: 15%;
+    padding-top: 25%;
     padding-bottom: 3rem;
     color: #EC8800
 }
