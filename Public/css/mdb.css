@@ -5387,7 +5387,7 @@ button:focus {
 .btn-secondary {
   background-color: #aa66cc; }
   .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
-    background-color: #b579d2 !important;
+    background-color: #B3B6E5 !important;
     color: #fff; }
   .btn-secondary.active {
     background-color: #773399 !important; }
@@ -5411,7 +5411,7 @@ button:focus {
 .btn-primary {
   background: #2F0A88; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-    background-color: #5a95f5 !important; }
+    background-color: #B3B6E5 !important; }
   .btn-primary.active {
     background-color: #0b51c5 !important; }
 

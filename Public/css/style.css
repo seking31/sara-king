@@ -16,6 +16,15 @@ header,
   border-style: solid;
 }
 
+#title {
+  font-weight: bold;
+}
+
+h2 {
+  color:#2F0A88;
+  letter-spacing: 3px;
+}
+
 @media (max-width: 768px) {
     .full-bg-img,
     .view {
@@ -26,6 +35,8 @@ header,
 
 #card {
   padding-bottom: 10px;
+  height: 340px;
+  width: 540px;
 }
 
 .description {
