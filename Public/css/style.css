@@ -35,12 +35,12 @@ h2 {
 
 #card {
   padding-bottom: 10px;
-  height: 340px;
+  height: 310px;
   width: 540px;
 }
 
 .description {
-    padding-top: 15%;
+    padding-top: 3rem;
     padding-bottom: 3rem;
     color: #EC8800
 }
