@@ -44,12 +44,20 @@ h2 {
 .description {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    color: #EC8800
+    color: #EC8800;
+    margin: 62px;
+    font-size: 2.5rem;
+}
+
+.projects {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #EC8800;
 }
 
 @import "compass/css3";
 
-@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import urlhttps://fonts.googleapis.com/css?family=Roboto);
 @import url(https://fonts.googleapis.com/css?family=Lusitana);
 
 html, body {
@@ -58,7 +66,7 @@ html, body {
   margin: 0;
 }
 body {
-  font-family: "Varela Round";
+  font-family: "Roboto";
   background: #b193f7;
 }
 #header {
@@ -90,7 +98,7 @@ body {
       top: 50%;
 
       h1 {
-        font-family: "Lusitana";
+        font-family: "Roboto";
         font-weight: normal;
         line-height: 1em;
         font-size: 11em;
@@ -133,7 +141,7 @@ $hrSize: 5px;
     @include transform(rotate(45deg));
 
     > i {
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      font-family: "Roboto", Palatino, serif;
       line-height: $hrBoxBorderLength*0.92;
       font-size: $hrBoxBorderLength/2;
       height: $hrBoxBorderLength;
