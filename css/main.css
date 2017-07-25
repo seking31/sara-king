@@ -5,7 +5,7 @@
 
 
 /* Global reset
-   http://meyerweb.com/eric/tools/css/reset/ 
+   http://meyerweb.com/eric/tools/css/reset/
 *****************************************************************/
 
 html, body, div, span, applet, object, iframe,
@@ -17,8 +17,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -29,7 +29,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -52,10 +52,24 @@ table {
 	border-spacing: 0;
 }
 
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 500px;
+		padding-bottom: 150px;
+}
+
+#holder{
+    min-height: 100%;
+    position:relative;
+		width: 500px;
+}
+
+
 /* Extended base styles (site specific)
 *****************************************************************/
 
-html { 
+html {
 	overflow-y: scroll; /* always force a scrollbar in non-IE */
 	}
 body {
@@ -81,10 +95,10 @@ a:visited {
 	outline: none;
 	text-decoration:none;
 	}
-	a:hover { 
+	a:hover {
 		color:#000;
 		}
-img { 
+img {
 	display:block;
 	}
 p {
@@ -108,18 +122,8 @@ hr {
 #wrapper {
 	position: relative;
 }
-#branding {
-	width: 100%;
-	background: #fff;
-	}
-	#branding h1 {
-		width: 940px;
-		padding: 10px 15px;
-		margin: 0 auto;
-		text-transform: uppercase;
-		font-size: 18px;
-		font-weight: bold;
-		}
+
+
 
 /* Nav
 *****************************************************************/
@@ -317,4 +321,3 @@ nav.next-prev {
 		top: 1020px;
 		left: 450px;
 		}
-
