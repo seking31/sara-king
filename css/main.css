@@ -314,3 +314,15 @@ nav.next-prev {
 		top: 1020px;
 		left: 450px;
 		}
+
+		#english-channel td:hover {
+		 transform: scale(2);
+		}
+
+		#frameless-parachute h5:hover {
+			transform: scale(1.5);
+		}
+
+		#color {
+			background-color: #9af2f2
+		}
