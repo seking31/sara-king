@@ -1,47 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>The King of Saras</title>
 	<meta charset="utf-8">
+	<title>The King of Saras</title>
+	<meta name="keywords" content="Angular, TypeScript, JavaScript, ECMA6, Node JS, HTML5, CSS3, Native DOM and Event APIs, Is Super Cool!!, Loves dogs.">
+	<meta name="author" content="Sara King">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<style type="text/css">
+		/* orange: #c95132; */
 
 		body {
-			background: black;
+			background-color: black;
+		}
+			
+		.top-space {height: 150px;}
+		.splash {
+			margin: -20px;
+			background: url(perfect.gif)no-repeat center center fixed;
+			-webkit-background-size: cover;
+  			-moz-background-size: cover;
+  			-o-background-size: cover;
+  			background-size: cover;
+
+  			/*border: 10px solid black;*/
+  			/*box-sizing: border-box;*/
 		}
 
-		.fire {
-			width: auto;
-			background: url(perfect.gif);
-			background-size:cover;
+		.links-box {
+			display: flex;
+			justify-content: center;
 		}
 
-		#sara {
-			margin: 0;
-			height: 600px;
-			width: 100%;
+		.links-box__img {
+			margin: 80px;
+			height: 40px;
 		}
-
-		a {
-			font-size: -webkit-xxx-large;
-			padding-bottom: 50px;
-			padding-top: 50px;
-	    display: flex;
-	    justify-content: center;
-	    color: lightcoral;
-			font-family: Impact;
-			cursor: pointer;
-			text-shadow: 4px 4px Black;
-			text-decoration: none !important;
-		}
-
-
 	</style>
 </head>
 <body>
-	<div class="fire">
-		<img src="saraNeg.svg" id="sara">
-		<a href="https://www.linkedin.com/in/sara-king/">l i n k e d I n</a>
-	</div>
-
+	<div class="top-space"></div>
+	<img class="splash" src="saraNeg_ii.svg">
+		
+	<div class="links-box">
+		<a href="https://www.linkedin.com/in/sara-king/" target="_blank"><img class="links-box__img" src="linkedIn_orange.svg"></a>
+		<a href="https://github.com/" target="_blank"><img class="links-box__img" src="gitHub_orange.svg"></a>
+	</div><!-- LINKS BOX -->
 </body>
 </html>
