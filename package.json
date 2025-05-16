@@ -1,22 +1,23 @@
 {
-  "name": "public",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/seking31/sara-king.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/seking31/sara-king/issues"
-  },
-  "homepage": "https://github.com/seking31/sara-king#readme",
-  "dependencies": {
-    "mdbootstrap": "^4.3.2"
-  }
+	"name": "public",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/seking31/sara-king.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/seking31/sara-king/issues"
+	},
+	"homepage": "https://github.com/seking31/sara-king#readme",
+	"dependencies": {
+		"@emailjs/browser": "^4.4.1",
+		"mdbootstrap": "^4.3.2"
+	}
 }
