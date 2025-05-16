@@ -1,0 +1,67 @@
+:root {
+    --primary-bg: #000;
+    --accent-color: #c95132;
+    --spacing-unit: 1rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--primary-bg);
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+}
+
+.site-header,
+.site-footer {
+    text-align: center;
+    padding: var(--spacing-unit);
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background: url('../assets/perfect.gif') center center / cover no-repeat fixed;
+}
+
+.hero__image {
+    max-width: 100%;
+    height: auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: calc(var(--spacing-unit) * 2);
+    padding: var(--spacing-unit) 0;
+}
+
+.social-links__icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social-links__icon:hover,
+.nocial-links__icon:focus {
+    transform: scale(1.1);
+    outline: none;
+}
