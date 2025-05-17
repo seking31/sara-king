@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       await emailjs.send("service_5h8cutg", "template_6ca9nzh", {
         name: name,
-        email: email,
-        message: message,
+        email: "sara@sara-king.com",
+        message: `message: ${message} email:${email}`,
       });
       alert("Message sent successfully.");
       form.reset();
