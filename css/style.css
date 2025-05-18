@@ -21,9 +21,10 @@ body {
 
 .navbar {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 100%;
     margin: auto;
     padding: calc(var(--spacing-unit) * 0.5) var(--spacing-unit);
 }
@@ -109,6 +110,7 @@ body {
 .contact-form label {
     text-align: left;
     font-weight: bold;
+
 }
 
 .contact-form input,
@@ -118,7 +120,7 @@ body {
     border-radius: 4px;
     background-color: var(--primary-bg);
     color: var(--accent-color);
-    font-family: inherit;
+    max-width: 70%;
 }
 
 .contact-form button {
@@ -147,4 +149,38 @@ iframe {
     box-shadow: 0 2px 6px var(--primary-bg);
     width: 100%;
     height: 805px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .site-header {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .navbar__menu {
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar__brand {
+        font-size: 1.5rem;
+    }
+
+    .navbar__menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
 }
