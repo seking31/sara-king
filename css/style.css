@@ -56,8 +56,7 @@ body {
     outline: none;
 }
 
-.site-header,
-.site-footer {
+.site-header {
     text-align: center;
     padding: var(--spacing-unit);
 }
