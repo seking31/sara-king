@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: black;
+}
+
+.resume-wrapper {
+    padding: 2rem;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Download Bar */
+.download-bar {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+.download-btn {
+    background: #c95132;
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background: #a83e24;
+}
+
+/* Resume Container */
+.resume {
+    display: flex;
+    gap: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+/* LEFT SIDE */
+.left-col {
+    width: 30%;
+    border-right: 1px solid #ddd;
+    padding-right: 1.5rem;
+}
+
+.left-col section {
+    margin-bottom: 2rem;
+}
+
+.left-col h3 {
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.left-col ul {
+    padding-left: 1.2rem;
+    line-height: 1.6;
+}
+
+/* RIGHT SIDE */
+.right-col {
+    width: 70%;
+    padding-left: 1rem;
+}
+
+.resume-name {
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    letter-spacing: 4px;
+    color: #555;
+}
+
+.right-col h3 {
+    margin-top: 2rem;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.3rem;
+}
+
+.job {
+    margin-bottom: 1.5rem;
+}
+
+.job-title {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.job ul {
+    padding-left: 1.2rem;
+    line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+    .resume-name {
+        font-size: 1.2rem;
+    }
+
+    .left-col {
+        width: 100%;
+        border-right: 0px;
+    }
+
+    .right-col {
+        width: 100%;
+    }
+
+    .resume {
+        flex-direction: column;
+    }
+}
