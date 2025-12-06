@@ -5,9 +5,9 @@ import Navbar from '../../components/Navbar'
 
 export default function About() {
   return (
-    <div className="site-container">
+    <div className="site-header ">
       <Navbar />
-      <main className="contact-form">
+      <main>
         <section>
           <p>In a world of screens and code, Where headphones hum a quiet ode, A coder sits with focused gaze, Crafting dreams in digital ways.</p>
 

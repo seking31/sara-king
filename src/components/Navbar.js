@@ -25,11 +25,6 @@ export default function Navbar() {
               Resume
             </Link>
           </li>
-          <li className="navbar__item">
-            <Link to="/contact" className="navbar__link">
-              Contact
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>
