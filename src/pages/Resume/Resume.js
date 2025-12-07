@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
-import resume from '../../assets/'
+import resume from '../../assets/Sara E. King Resume 2025.png'
 import './resume.css'
 
 export default function Resume() {

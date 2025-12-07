@@ -1,15 +1,22 @@
 // src/components/Navbar.js
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './navbar.css'
 
-// src/components/Navbar.js
-import { Link } from 'react-router-dom'
-
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <header className="site-header">
       <nav className="navbar" aria-label="Primary">
-        <ul className="navbar__menu">
+        {/* Hamburger Button */}
+        <button className="navbar__toggle" aria-label="Toggle menu" onClick={() => setIsOpen(!isOpen)}>
+          <span className="hamburger"></span>
+          <span className="hamburger"></span>
+          <span className="hamburger"></span>
+        </button>
+
+        <ul className={`navbar__menu ${isOpen ? 'open' : ''}`}>
           <li className="navbar__item">
             <Link to="/" className="navbar__link">
               Home
