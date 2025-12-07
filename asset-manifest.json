@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/sara-king/static/css/main.affcf61b.css",
-    "main.js": "/sara-king/static/js/main.18cc0c49.js",
+    "main.css": "/sara-king/static/css/main.702da18e.css",
+    "main.js": "/sara-king/static/js/main.ffd1bd41.js",
     "static/js/453.535c40ea.chunk.js": "/sara-king/static/js/453.535c40ea.chunk.js",
     "static/media/perfect.gif": "/sara-king/static/media/perfect.c1eeabd0907ba5ec4615.gif",
     "static/media/saraNeg_ii.svg": "/sara-king/static/media/saraNeg_ii.82735ebc2d82a6cd001a38d49f2263de.svg",
     "static/media/github.svg": "/sara-king/static/media/github.4612f6848dc8fa3f1b8c584cf0e62580.svg",
     "static/media/linkedin.svg": "/sara-king/static/media/linkedin.94f8272d8688828a1cc76998666cff60.svg",
     "index.html": "/sara-king/index.html",
-    "main.affcf61b.css.map": "/sara-king/static/css/main.affcf61b.css.map",
-    "main.18cc0c49.js.map": "/sara-king/static/js/main.18cc0c49.js.map",
+    "main.702da18e.css.map": "/sara-king/static/css/main.702da18e.css.map",
+    "main.ffd1bd41.js.map": "/sara-king/static/js/main.ffd1bd41.js.map",
     "453.535c40ea.chunk.js.map": "/sara-king/static/js/453.535c40ea.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.affcf61b.css",
-    "static/js/main.18cc0c49.js"
+    "static/css/main.702da18e.css",
+    "static/js/main.ffd1bd41.js"
   ]
 }
