@@ -9,7 +9,7 @@ export default function About() {
     <div className="site-container">
       <Navbar />
       <main>
-        <section>
+        <section className="about">
           <p>In a world of screens and code, Where headphones hum a quiet ode, A coder sits with focused gaze, Crafting dreams in digital ways.</p>
 
           <p>The laptop glows, a portal bright, To realms where logic takes its flight, A symphony of keys and clicks, Building worlds with clever tricks.</p>

@@ -19,7 +19,7 @@ body {
 .download-btn {
     background: #c95132;
     color: #fff;
-    padding: 0.7rem 1.2rem;
+    padding: 0.7rem 1.2rem !important;
     border-radius: 5px;
     font-weight: bold;
     text-decoration: none;
@@ -31,6 +31,7 @@ body {
 
 /* Resume Container */
 .resume {
+    margin: 2rem;
     display: flex;
     gap: 2rem;
     background: white;
