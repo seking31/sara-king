@@ -4,7 +4,7 @@ import './githubprojects.css'
 import '../../index.css'
 import Navbar from '../../components/Navbar'
 
-export default function GitHubProjects({ username, perPage = 40 }) {
+export default function GitHubProjects({ username = 'seking31', perPage = 40 }) {
   const [repos, setRepos] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -28,7 +28,7 @@ export default function GitHubProjects({ username, perPage = 40 }) {
     }
 
     fetchRepos()
-  }, [username, perPage])
+  }, [])
 
   return (
     <div className="site-container">

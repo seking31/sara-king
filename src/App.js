@@ -12,7 +12,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/resume" element={<Resume />} />
-        <Route path="/projects" element={<GitHubProjects username="seking31" />} />
+        <Route path="/projects" element={<GitHubProjects />} />
       </Routes>
     </main>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
+import resume from '../../assets/Sara E. King Resume 2025.png'
 import './resume.css'
 
 export default function Resume() {
@@ -9,8 +10,8 @@ export default function Resume() {
 
       <div className="resume-wrapper">
         <div className="download-bar">
-          <a href="/Sara_King_Resume.pdf" download className="download-btn">
-            Download Resume (PDF)
+          <a href={resume} download className="download-btn">
+            Download Resume (PNG)
           </a>
         </div>
 
