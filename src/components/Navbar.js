@@ -4,7 +4,7 @@ import './navbar.css'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-
+  const heart = '<3'
   const handleToggle = () => {
     setIsOpen((prev) => !prev)
   }
@@ -19,7 +19,7 @@ export default function Navbar() {
       <nav className="navbar" aria-label="Primary navigation">
         {/* Brand (optional, remove if not needed) */}
         <Link to="/" className="navbar__brand">
-          MySite
+          <strong>{heart}</strong>
         </Link>
 
         {/* Hamburger Button (mobile only via CSS) */}

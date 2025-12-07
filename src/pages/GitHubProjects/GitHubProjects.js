@@ -28,7 +28,7 @@ export default function GitHubProjects({ username = 'seking31', perPage = 40 }) 
     }
 
     fetchRepos()
-  }, [])
+  }, [username, perPage])
 
   return (
     <div className="site-container">
