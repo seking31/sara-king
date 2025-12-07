@@ -1,11 +1,12 @@
 // src/pages/About.js
 import React from 'react'
 import '../../index.css'
+import './about.css'
 import Navbar from '../../components/Navbar'
 
 export default function About() {
   return (
-    <div className="site-header ">
+    <div className="site-container">
       <Navbar />
       <main>
         <section>

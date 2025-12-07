@@ -25,6 +25,11 @@ export default function Navbar() {
               Resume
             </Link>
           </li>
+          <li className="navbar__item">
+            <Link to="/projects" className="navbar__link">
+              Projects
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

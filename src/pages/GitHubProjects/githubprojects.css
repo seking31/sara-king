@@ -1,0 +1,102 @@
+/* Re-use your existing CSS variable system */
+:root {
+    --primary-bg: #000;
+    --accent-color: #c95132;
+    --spacing-unit: 1rem;
+    --text-color: white;
+    --card-bg: #111;
+    --card-border: #333;
+    --muted-text: #bbb;
+}
+
+/* Scope styles to the projects section so it plays nicely with the rest of the site */
+.projects-section {
+    padding: calc(var(--spacing-unit) * 2);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+}
+
+.projects-title {
+    font-size: 1.8rem;
+    margin: 0 0 var(--spacing-unit);
+    text-align: center;
+}
+
+/* Status / error text */
+.projects-status {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.projects-error {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* List layout */
+.projects-list {
+    list-style: none;
+    padding: 0;
+    margin: calc(var(--spacing-unit) * 2) 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: calc(var(--spacing-unit) * 1.5);
+}
+
+/* Individual project card */
+.project-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    padding: calc(var(--spacing-unit) * 1.25);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    border-color: var(--accent-color);
+}
+
+/* Clickable area */
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Name + description */
+.project-name {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    color: var(--muted-text);
+    margin: 0 0 calc(var(--spacing-unit) * 0.75);
+}
+
+/* Tags (language + stars) */
+.project-tag {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.75rem;
+    color: var(--muted-text);
+}
+
+@media screen and (max-width: 768px) {
+    .projects-section {
+        padding: var(--spacing-unit);
+    }
+
+    .projects-title {
+        font-size: 1.5rem;
+    }
+}

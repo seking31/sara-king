@@ -10,7 +10,6 @@ import heroBg from '../../assets/perfect.gif'
 export default function Home() {
   return (
     <div className="site-container">
-      {' '}
       <Navbar />
       <main className="main-content">
         <section className="hero" style={{ backgroundImage: `url(${heroBg})` }}>

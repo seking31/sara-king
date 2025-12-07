@@ -102,8 +102,17 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+
     .resume-name {
-        font-size: 1.2rem;
+        display: none;
+    }
+
+    .subtitle {
+        display: none;
+    }
+
+    .profile {
+        display: none;
     }
 
     .left-col {
