@@ -18,7 +18,7 @@
 .about-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
-    gap: 3rem;
+    gap: calc(var(--spacing-unit) * 3);
     align-items: flex-start;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .about-title {
-    font-size: 2rem;
+    font-size: calc(var(--spacing-unit) * 2);
     margin-bottom: 1.5rem;
     margin-top: 0px;
 }

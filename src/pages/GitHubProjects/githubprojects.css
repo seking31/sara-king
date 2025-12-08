@@ -61,7 +61,7 @@
 
 /* Name + description */
 .project-name {
-    font-size: 1.1rem;
+    font-size: var(--spacing-unit);
     margin: 0 0 0.5rem;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .projects-pagination {
-    margin-top: 2rem;
+    margin-top: calc(var(--spacing-unit) * 2);
     display: flex;
     justify-content: center;
     align-items: center;
