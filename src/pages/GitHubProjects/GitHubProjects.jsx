@@ -110,7 +110,30 @@ export default function GitHubProjects() {
         )}
 
         {!loading && !error && visibleRepos.length > 0 && (
+          
           <>
+                {/* Pagination controls */}
+            <div className="projects-pagination">
+              <button
+                className="projects-page-button"
+                onClick={handlePrev}
+                disabled={currentPage === 1 || loading}
+              >
+                ‹ Prev
+              </button>
+
+              <span className="projects-page-indicator">
+                Page {currentPage} of {totalPages}
+              </span>
+
+              <button
+                className="projects-page-button"
+                onClick={handleNext}
+                disabled={currentPage === totalPages || loading}
+              >
+                Next ›
+              </button>
+            </div>
             <motion.ul
               className="projects-list"
               variants={containerVariants}
@@ -143,29 +166,6 @@ export default function GitHubProjects() {
                 </motion.li>
               ))}
             </motion.ul>
-
-            {/* Pagination controls */}
-            <div className="projects-pagination">
-              <button
-                className="projects-page-button"
-                onClick={handlePrev}
-                disabled={currentPage === 1 || loading}
-              >
-                ‹ Prev
-              </button>
-
-              <span className="projects-page-indicator">
-                Page {currentPage} of {totalPages}
-              </span>
-
-              <button
-                className="projects-page-button"
-                onClick={handleNext}
-                disabled={currentPage === totalPages || loading}
-              >
-                Next ›
-              </button>
-            </div>
           </>
         )}
       </motion.section>
