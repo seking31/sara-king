@@ -36,7 +36,7 @@ export default function About() {
           <div className="about-grid">
             {/* LEFT SIDE */}
             <aside className="about-aside">
-              <motion.div className="about-photo-wrapper" initial={{ y: -10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ type: 'spring', stiffness: 160, damping: 18 }} whileHover={{ y: -6, rotate: -1 }}>
+              <motion.div className="about-photo-wrapper" whileHover={{ y: -4, scale: 1.02 }} transition={{ type: 'spring', stiffness: 200, damping: 15 }}>
                 <motion.img src={headshot} alt="Sara E. King" className="about-photo" />
               </motion.div>
 
