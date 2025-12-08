@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/sara-king/static/css/main.8ed5c5b4.css",
-    "main.js": "/sara-king/static/js/main.3ba2b587.js",
+    "main.css": "/sara-king/static/css/main.4275fde5.css",
+    "main.js": "/sara-king/static/js/main.9bab8ac6.js",
     "static/js/453.535c40ea.chunk.js": "/sara-king/static/js/453.535c40ea.chunk.js",
+    "static/media/headshot.png": "/sara-king/static/media/headshot.8ec0cda9da5add39ab10.png",
     "static/media/perfect.gif": "/sara-king/static/media/perfect.c1eeabd0907ba5ec4615.gif",
-    "static/media/Sara E. King Resume 2025.png": "/sara-king/static/media/Sara E. King Resume 2025.9b12a45d49b58ff79fdc.png",
+    "static/media/Sara E. King Resume 202512.png": "/sara-king/static/media/Sara E. King Resume 202512.60a04fc81df560f49bd5.png",
     "static/media/saraNeg_ii.svg": "/sara-king/static/media/saraNeg_ii.82735ebc2d82a6cd001a38d49f2263de.svg",
     "static/media/github.svg": "/sara-king/static/media/github.4612f6848dc8fa3f1b8c584cf0e62580.svg",
     "static/media/linkedin.svg": "/sara-king/static/media/linkedin.94f8272d8688828a1cc76998666cff60.svg",
     "index.html": "/sara-king/index.html",
-    "main.8ed5c5b4.css.map": "/sara-king/static/css/main.8ed5c5b4.css.map",
-    "main.3ba2b587.js.map": "/sara-king/static/js/main.3ba2b587.js.map",
+    "main.4275fde5.css.map": "/sara-king/static/css/main.4275fde5.css.map",
+    "main.9bab8ac6.js.map": "/sara-king/static/js/main.9bab8ac6.js.map",
     "453.535c40ea.chunk.js.map": "/sara-king/static/js/453.535c40ea.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ed5c5b4.css",
-    "static/js/main.3ba2b587.js"
+    "static/css/main.4275fde5.css",
+    "static/js/main.9bab8ac6.js"
   ]
 }
