@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import './navbar.css'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const heart = '<3'
+
   const handleToggle = () => {
     setIsOpen((prev) => !prev)
   }
@@ -13,15 +15,61 @@ export default function Navbar() {
     setIsOpen(false)
   }
 
+  const heartVariants = {
+    initial: { scale: 0.8, opacity: 0, y: -10 },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      y: 0,
+      transition: { type: 'spring', stiffness: 400, damping: 20 },
+    },
+    hover: {
+      scale: 1.3,
+      rotate: [0, -10, 10, -5, 5, 0],
+      textShadow: '0 0 20px rgba(255, 45, 85, 1)',
+      transition: { duration: 0.4 },
+    },
+  }
+
+  const brandClusterVariants = {
+    initial: { opacity: 0, y: -10 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
+  }
+
   return (
     <header className="site-header">
       <nav className="navbar" aria-label="Primary navigation">
-        <Link to="/" className="navbar__brand">
-          <strong>{heart}</strong>
-        </Link>
+        {/* Epic animated brand */}
+        <motion.div
+          className="navbar__brand-cluster"
+          variants={brandClusterVariants}
+          initial="initial"
+          animate="animate"
+        >
+
+          <Link to="/" className="navbar__brand">
+            <motion.strong
+              className="navbar__heart navbar__heart--right"
+              variants={heartVariants}
+              whileHover="hover"
+              whileTap={{ scale: 0.9 }}
+            >
+              {heart}
+            </motion.strong>
+          </Link>
+        </motion.div>
 
         {/* Hamburger Button (mobile only via CSS) */}
-        <button className="navbar__toggle" aria-label="Toggle menu" aria-expanded={isOpen} onClick={handleToggle}>
+        <button
+          className="navbar__toggle"
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          onClick={handleToggle}
+        >
           <span className="hamburger" />
           <span className="hamburger" />
           <span className="hamburger" />

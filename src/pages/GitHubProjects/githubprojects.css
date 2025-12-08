@@ -91,6 +91,40 @@
     color: var(--muted-text);
 }
 
+.projects-pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.projects-page-button {
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+}
+
+.projects-page-button:hover:not(:disabled) {
+    background: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+.projects-page-button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.projects-page-indicator {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
 @media screen and (max-width: 768px) {
     .projects-section {
         padding: var(--spacing-unit);

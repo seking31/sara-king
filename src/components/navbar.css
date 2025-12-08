@@ -17,12 +17,29 @@
     padding: calc(var(--spacing-unit) * 0.5) var(--spacing-unit);
 }
 
-/* Brand (optional) */
+/* Brand cluster (animated hearts) */
+.navbar__brand-cluster {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Brand link */
 .navbar__brand {
-    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+/* Heart styling */
+.navbar__heart {
+    font-size: 2rem;
     font-weight: bold;
     color: var(--accent-color);
-    text-decoration: none;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(201, 81, 50, 0.7));
+}
+
+.navbar__heart--right {
+    transform-origin: center;
 }
 
 /* Menu (desktop default) */
@@ -101,8 +118,12 @@
         justify-content: space-between;
     }
 
-    .navbar__brand {
-        font-size: 1.25rem;
+    .navbar__brand-cluster {
+        gap: 0.3rem;
+    }
+
+    .navbar__heart {
+        font-size: 1.6rem;
     }
 
     /* Show the hamburger on mobile */
@@ -141,8 +162,12 @@
 
 /* Optional: extra small screens tweaks */
 @media screen and (max-width: 480px) {
-    .navbar__brand {
-        font-size: 1.1rem;
+    .navbar__brand-cluster {
+        gap: 0.2rem;
+    }
+
+    .navbar__heart {
+        font-size: 1.4rem;
     }
 
     .navbar__menu.open {
