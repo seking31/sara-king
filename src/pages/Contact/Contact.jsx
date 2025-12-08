@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./contact.css";
+import { motion } from 'framer-motion'
 import emailjs from "@emailjs/browser";
 import Navbar from '../../components/Navbar'
 
@@ -40,7 +41,7 @@ console.log( process.env.REACT_APP_EMAILJS_SERVICE_ID,
   return (
     <div className="contact-form-container">
        <Navbar />
-      <div className="contact-form">
+      <motion.div  className="contact-form" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }}>
         <h2 className="text-2xl font-semibold mb-4">Contact</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -92,7 +93,7 @@ console.log( process.env.REACT_APP_EMAILJS_SERVICE_ID,
         {status === "error" && (
           <p className="mt-3 text-red-600">Something went wrong. Please try again.</p>
         )}
-      </div>
+      </motion.div >
     </div>
   );
 }
