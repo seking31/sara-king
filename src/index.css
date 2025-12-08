@@ -2,7 +2,10 @@
   --primary-bg: #000;
   --accent-color: #c95132;
   --spacing-unit: 1rem;
-  --text-color: white
+  --text-color: white;
+  --card-bg: #111;
+  --card-border: #333;
+  --muted-text: #bbb;
 }
 
 *,

@@ -59,7 +59,7 @@
 .navbar__link {
     color: var(--text-color);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: var(--spacing-unit) 0;
     transition: color 0.3s ease;
 }
@@ -104,10 +104,6 @@
         background: transparent;
         gap: calc(var(--spacing-unit) * 2);
         padding: 0;
-    }
-
-    .navbar__link {
-        color: var(--text-color);
     }
 }
 
@@ -154,10 +150,6 @@
         min-width: 200px;
     }
 
-    .navbar__link {
-        color: white;
-        font-size: 1rem;
-    }
 }
 
 /* Optional: extra small screens tweaks */
