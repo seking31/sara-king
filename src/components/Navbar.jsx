@@ -10,14 +10,12 @@ export default function Navbar() {
   }
 
   const handleLinkClick = () => {
-    // Close the menu after clicking a link on mobile
     setIsOpen(false)
   }
 
   return (
     <header className="site-header">
       <nav className="navbar" aria-label="Primary navigation">
-        {/* Brand (optional, remove if not needed) */}
         <Link to="/" className="navbar__brand">
           <strong>{heart}</strong>
         </Link>
@@ -48,6 +46,11 @@ export default function Navbar() {
           <li className="navbar__item">
             <Link to="/projects" className="navbar__link" onClick={handleLinkClick}>
               Projects
+            </Link>
+          </li>
+          <li className="navbar__item">
+            <Link to="/contact" className="navbar__link" onClick={handleLinkClick}>
+              Contact
             </Link>
           </li>
         </ul>
