@@ -12,15 +12,21 @@ export default function GitHubProjects() {
   const [page, setPage] = useState(1)
 
   const username = process.env.REACT_APP_USERNAME
-  const perPage = parseInt(process.env.REACT_APP_PERPAGE || '40', 10) // 💡 ensure number
+  // This is how many items you want visible on-screen per page
+  const pageSize = parseInt(process.env.REACT_APP_PERPAGE || '9', 10)
 
   useEffect(() => {
     async function fetchRepos() {
       setLoading(true)
       setError(null)
       try {
+        if (!username) {
+          throw new Error('GitHub username is not configured.')
+        }
+
+        // Fetch a big enough set of repos once (100 is the GitHub API max per page)
         const res = await fetch(
-          `https://api.github.com/users/${username}/repos?sort=updated&per_page=${perPage}&page=${page}`
+          `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
         )
 
         if (!res.ok) {
@@ -37,9 +43,23 @@ export default function GitHubProjects() {
     }
 
     fetchRepos()
-  }, [username, perPage, page]) // include deps
+  }, [username])
 
-  // Animation Variants
+  // Pagination math
+  const totalPages = Math.max(1, Math.ceil(repos.length / pageSize))
+  const currentPage = Math.min(page, totalPages)
+  const startIndex = (currentPage - 1) * pageSize
+  const endIndex = startIndex + pageSize
+  const visibleRepos = repos.slice(startIndex, endIndex)
+
+  const handlePrev = () => {
+    setPage((prev) => Math.max(1, prev - 1))
+  }
+
+  const handleNext = () => {
+    setPage((prev) => Math.min(totalPages, prev + 1))
+  }
+
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     show: {
@@ -63,21 +83,6 @@ export default function GitHubProjects() {
       transition: { type: 'spring', stiffness: 130, damping: 12 },
     },
   }
-
-  const handlePrev = () => {
-    if (page > 1) {
-      setPage((prev) => prev - 1)
-    }
-  }
-
-  const handleNext = () => {
-    // Only allow "Next" if we got a full page of results
-    if (repos.length === perPage) {
-      setPage((prev) => prev + 1)
-    }
-  }
-
-  const isLastPage = repos.length < perPage
 
   return (
     <div className="site-container">
@@ -104,7 +109,7 @@ export default function GitHubProjects() {
           <p className="projects-status">No repositories found.</p>
         )}
 
-        {!loading && !error && repos.length > 0 && (
+        {!loading && !error && visibleRepos.length > 0 && (
           <>
             <motion.ul
               className="projects-list"
@@ -112,7 +117,7 @@ export default function GitHubProjects() {
               initial="hidden"
               animate="show"
             >
-              {repos.map((repo) => (
+              {visibleRepos.map((repo) => (
                 <motion.li
                   key={repo.id}
                   className="project-card"
@@ -144,17 +149,19 @@ export default function GitHubProjects() {
               <button
                 className="projects-page-button"
                 onClick={handlePrev}
-                disabled={page === 1 || loading}
+                disabled={currentPage === 1 || loading}
               >
                 ‹ Prev
               </button>
 
-              <span className="projects-page-indicator">Page {page}</span>
+              <span className="projects-page-indicator">
+                Page {currentPage} of {totalPages}
+              </span>
 
               <button
                 className="projects-page-button"
                 onClick={handleNext}
-                disabled={isLastPage || loading}
+                disabled={currentPage === totalPages || loading}
               >
                 Next ›
               </button>
