@@ -8,10 +8,13 @@
   --muted-text: #bbb;
 }
 
+/* ---------- GLOBAL / SITE STYLES ---------- */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  background-repeat: no-repeat;
 }
 
 body {
@@ -20,8 +23,10 @@ body {
   background-color: var(--primary-bg);
   color: var(--text-color);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  background-position: center top;
 }
-
 
 .site-header {
   text-align: center;
@@ -62,7 +67,7 @@ body {
   font-weight: bold;
   color: var(--accent-color);
   display: inline-block;
-  filter: drop-shadow(0 0 10px rgba(201, 81, 50, 0.7));
+  filter: drop-shadow(0 0 10px var(--accent-color));
 }
 
 .navbar__heart--right {
@@ -83,5 +88,56 @@ body {
   .main-content-home {
     margin-top: calc(var(--spacing-unit) * 7);
   }
+}
 
+/* ---------- MOUSE TRAIL / PARTICLES ONLY ---------- */
+
+.ball {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+  animation: implode 10s ease-in-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+@keyframes implode {
+  0% {
+    transform: scale(0);
+  }
+
+  5%,
+  30% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+/* container that particles append into */
+#wrap {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  /* behind your content */
+}
+
+/* hide avatar & mobile overlay completely (if they still exist in DOM) */
+.frame,
+#avatar,
+.block-mobile {
+  display: none;
+}
+
+/* optional signature */
+.sig {
+  position: fixed;
+  right: 1vh;
+  bottom: 1vh;
+  color: purple;
+  z-index: 2;
 }
