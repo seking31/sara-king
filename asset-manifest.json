@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/sara-king/static/css/main.f93988fa.css",
-    "main.js": "/sara-king/static/js/main.178888fc.js",
+    "main.js": "/sara-king/static/js/main.69b3ab6c.js",
     "static/js/453.535c40ea.chunk.js": "/sara-king/static/js/453.535c40ea.chunk.js",
     "static/media/headshot.png": "/sara-king/static/media/headshot.8ec0cda9da5add39ab10.png",
     "static/media/perfect.gif": "/sara-king/static/media/perfect.c1eeabd0907ba5ec4615.gif",
@@ -11,11 +11,11 @@
     "static/media/linkedin.svg": "/sara-king/static/media/linkedin.94f8272d8688828a1cc76998666cff60.svg",
     "index.html": "/sara-king/index.html",
     "main.f93988fa.css.map": "/sara-king/static/css/main.f93988fa.css.map",
-    "main.178888fc.js.map": "/sara-king/static/js/main.178888fc.js.map",
+    "main.69b3ab6c.js.map": "/sara-king/static/js/main.69b3ab6c.js.map",
     "453.535c40ea.chunk.js.map": "/sara-king/static/js/453.535c40ea.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f93988fa.css",
-    "static/js/main.178888fc.js"
+    "static/js/main.69b3ab6c.js"
   ]
 }
