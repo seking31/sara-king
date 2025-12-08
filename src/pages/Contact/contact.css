@@ -69,10 +69,11 @@
     padding: var(--spacing-unit);
     background: var(--accent-color);
     color: var(--text-color);
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
     transition: transform 0.2s;
+    font-size: larger;
 }
 
 .submit-button:hover {

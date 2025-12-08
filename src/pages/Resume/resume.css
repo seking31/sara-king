@@ -8,14 +8,15 @@
 .download-btn {
     background: #c95132;
     color: #fff;
-    padding: 0.7rem 1.2rem !important;
+    padding: var(--spacing-unit);
     border-radius: 5px;
     font-weight: bold;
     text-decoration: none;
+    font-size: larger;
 }
 
 .download-btn:hover {
-    background: #a83e24;
+    transform: scale(1.05);
 }
 
 .resume-wrapper {
@@ -37,6 +38,6 @@
 
 @media screen and (max-width: 768px) {
     .download-btn {
-        width: -webkit-fill-available;
+        width: 100%;
     }
 }
