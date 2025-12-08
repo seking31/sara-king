@@ -64,7 +64,7 @@ export default function About() {
 
               <motion.p variants={item}>I’m driven by a commitment to accessibility, clear communication, and clean, intentional code. Whether I’m building an internal tool, refining a design system, or improving developer workflows, my goal is always the same: deliver intuitive, high-quality experiences for every user.</motion.p>
 
-              <motion.p variants={item}>Outside of engineering, I enjoy continuous learning, exploring new frameworks and accessibility techniques, and finding creative ways to blend design and technology.</motion.p>
+              <motion.p variants={item}>Outside of engineering, I enjoy camping, exploring horror novels, and dog training.</motion.p>
             </motion.div>
           </div>
         </motion.section>
