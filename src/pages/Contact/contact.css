@@ -13,7 +13,6 @@
     border-radius: 12px;
 }
 
-/* reuse your existing tailwind-y classnames if you're mixing */
 .text-2xl {
     font-size: 1.5rem;
 }
