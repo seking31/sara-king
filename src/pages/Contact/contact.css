@@ -66,6 +66,7 @@
     text-decoration: none;
     transition: transform 0.2s;
     font-size: larger;
+    border: none;
 }
 
 .submit-button:hover {
