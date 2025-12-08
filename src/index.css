@@ -67,4 +67,8 @@ body {
     padding: 1rem;
   }
 
+  .main-content-home {
+    margin-top: calc(var(--spacing-unit) * 7);
+  }
+
 }

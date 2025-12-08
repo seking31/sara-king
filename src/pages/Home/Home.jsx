@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="site-container">
       <Navbar />
-      <main className="main-content">
+      <main className="main-content-home">
         <section className="hero" style={{ backgroundImage: `url(${heroBg})` }}>
           <img src={heroImg} alt="Illustration of Sara King" className="hero__image" />
         </section>
