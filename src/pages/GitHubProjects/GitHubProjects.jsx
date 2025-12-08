@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import './githubprojects.css'
-import '../../index.css'
 import Navbar from '../../components/Navbar'
 
 export default function GitHubProjects() {

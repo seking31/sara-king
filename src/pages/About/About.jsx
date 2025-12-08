@@ -1,7 +1,6 @@
 // src/pages/About.js
 import React from 'react'
 import { motion } from 'framer-motion'
-import '../../index.css'
 import './about.css'
 import Navbar from '../../components/Navbar'
 import headshot from '../../assets/headshot.png'

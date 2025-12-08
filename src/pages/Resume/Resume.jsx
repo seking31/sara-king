@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '../../components/Navbar'
 import resume from '../../assets/Sara E. King Resume 202512.png'
-import '../../index.css'
 import './resume.css'
 
 export default function Resume() {
