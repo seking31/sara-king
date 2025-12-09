@@ -72,7 +72,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="site-header">
+    <header className="nav-header">
       <nav className="navbar" aria-label="Primary navigation">
         <motion.div
           className="navbar__brand-cluster"

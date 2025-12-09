@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import './mouseparticles.css'
 export default function MouseParticles() {
   const wrapRef = useRef(null);
 

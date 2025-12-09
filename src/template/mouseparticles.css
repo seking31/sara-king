@@ -1,0 +1,41 @@
+/* ---------- MOUSE TRAIL / PARTICLES ONLY ---------- */
+
+.ball {
+    pointer-events: none;
+    position: absolute;
+    border-radius: 50%;
+    animation: implode 10s ease-in-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+}
+
+@keyframes implode {
+    0% {
+        transform: scale(0);
+    }
+
+    5%,
+    30% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+/* container that particles append into */
+#wrap {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* hide avatar & mobile overlay completely (if they still exist in DOM) */
+.frame,
+#avatar,
+.block-mobile {
+    display: none;
+}
