@@ -1,12 +1,13 @@
 .cube-container {
-    padding-top: 8rem;
-    perspective: 800px;
-    width: 200px;
-    height: 200px;
-    margin: 2rem auto;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-weight: 600;
+    letter-spacing: .5em;
 }
-
-
 
 .cube {
     width: 200px;
@@ -22,54 +23,80 @@
     height: 100%;
     opacity: 0.9;
     border: 1px solid white;
-
+    background-color: black;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: x-large;
+    font-size: large;
+    filter: drop-shadow(0 0 20px var(--accent-color)) drop-shadow(0 0 40px var(--accent-color));
 }
 
-/* Individual cube faces – now with solid colors 
-
-#C51887 #C9D9EE99 #FFFFFF #F3A681E6 #F8E298B3
-*/
 .front {
     transform: rotateY(0deg) translateZ(100px);
-    background-color: black;
 }
 
 .right {
     transform: rotateY(90deg) translateZ(100px);
-    background-color: black;
 }
 
 .back {
     transform: rotateY(180deg) translateZ(100px);
-    background-color: black;
 }
 
 .left {
     transform: rotateY(-90deg) translateZ(100px);
-    background-color: black;
 }
 
 .top {
     transform: rotateX(90deg) translateZ(100px);
-    background-color: black;
 }
 
 .bottom {
     transform: rotateX(-90deg) translateZ(100px);
-    background-color: black;
+}
+
+/* Desktop: smaller cube */
+@media screen and (min-width: 1024px) {
+    .cube {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Half of 120px = 50px depth */
+    .front {
+        transform: rotateY(0deg) translateZ(75px);
+    }
+
+    .right {
+        transform: rotateY(90deg) translateZ(75px);
+    }
+
+    .back {
+        transform: rotateY(180deg) translateZ(75px);
+    }
+
+    .left {
+        transform: rotateY(-90deg) translateZ(75px);
+    }
+
+    .top {
+        transform: rotateX(90deg) translateZ(75px);
+    }
+
+    .bottom {
+        transform: rotateX(-90deg) translateZ(75px);
+    }
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-
     .cube-container {
         padding-top: 5rem;
-
+        margin: 0px;
+        border: 1px solid white;
+        height: min-content;
+        border-radius: 12px
     }
-
 }
