@@ -1,5 +1,5 @@
 // src/components/GitHubProjects.js
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import './githubprojects.css'
 import Navbar from '../../components/Navbar'
@@ -9,6 +9,9 @@ export default function GitHubProjects() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [page, setPage] = useState(1)
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
+  const sectionRef = useRef(null)
 
   const username = process.env.REACT_APP_USERNAME
   // This is how many items you want visible on-screen per page
@@ -43,6 +46,36 @@ export default function GitHubProjects() {
 
     fetchRepos()
   }, [username])
+
+  // Show / hide "back to top" button on mobile when scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      const isMobile = window.innerWidth <= 768
+      if (!isMobile) {
+        setShowScrollTop(false)
+        return
+      }
+
+      // Show button after user scrolls a bit down the page
+      if (window.scrollY > 200) {
+        setShowScrollTop(true)
+      } else {
+        setShowScrollTop(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToTopOfSection = () => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+  }
 
   // Pagination math
   const totalPages = Math.max(1, Math.ceil(repos.length / pageSize))
@@ -86,8 +119,8 @@ export default function GitHubProjects() {
   return (
     <div className="site-container">
       <Navbar />
-
       <motion.section
+        ref={sectionRef}
         className="projects-section"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -109,9 +142,8 @@ export default function GitHubProjects() {
         )}
 
         {!loading && !error && visibleRepos.length > 0 && (
-          
           <>
-                {/* Pagination controls */}
+            {/* Pagination controls */}
             <div className="projects-pagination">
               <button
                 className="projects-page-button"
@@ -157,9 +189,11 @@ export default function GitHubProjects() {
                     rel="noopener noreferrer"
                     className="project-link"
                   >
-                    <h3 className="project-name">🩷  { repo.name}</h3>
+                    <h3 className="project-name">🩷 {repo.name}</h3>
                     {repo.description && (
-                      <p className="project-description">{repo.description}</p>
+                      <p className="project-description">
+                        {repo.description}
+                      </p>
                     )}
                   </a>
                 </motion.li>
@@ -168,6 +202,17 @@ export default function GitHubProjects() {
           </>
         )}
       </motion.section>
+
+      {/* Mobile-only back to top button */}
+      {showScrollTop && (
+        <button
+          className="back-to-top-btn"
+          type="button"
+          onClick={scrollToTopOfSection}
+        >
+          ↑ Top
+        </button>
+      )}
     </div>
   )
 }
