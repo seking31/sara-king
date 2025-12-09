@@ -1,6 +1,6 @@
 :root {
   --primary-bg: #000;
-  --accent-color: #c95132;
+  --accent-color: #c31c94;
   --spacing-unit: 1rem;
   --text-color: white;
   --card-bg: #111;
@@ -28,16 +28,26 @@ body {
   background-position: center top;
 }
 
+.site-container {
+  padding-top: calc(var(--spacing-unit) * 5);
+}
+
 .site-header {
   text-align: center;
   padding: var(--spacing-unit);
+  width: 100%;
+  position: relative;
+  background: var(--primary-bg);
 }
 
 .hero {
+  padding-top: calc(var(--spacing-unit) * 5);
+  padding-bottom: calc(var(--spacing-unit) * 5);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('./assets/perfect.gif') center center / cover no-repeat fixed;
+  background: url('./assets/soothing13.gif') center / 100% auto repeat fixed;
+  image-rendering: pixelated;
 }
 
 .hero__image {
@@ -48,8 +58,8 @@ body {
 .social-links {
   display: flex;
   justify-content: center;
-  gap: calc(var(--spacing-unit) * 2);
-  padding: var(--spacing-unit) 0;
+  gap: calc(var(--spacing-unit) * 4);
+  padding: calc(var(--spacing-unit) * 2);
 }
 
 .social-links__icon {
@@ -76,18 +86,13 @@ body {
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
+
   .site-header {
-    width: 100%;
     height: auto;
-    position: relative;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1rem;
   }
 
-  .main-content-home {
-    margin-top: calc(var(--spacing-unit) * 7);
-  }
 }
 
 /* ---------- MOUSE TRAIL / PARTICLES ONLY ---------- */
@@ -122,8 +127,7 @@ body {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 0;
-  /* behind your content */
+  z-index: -1;
 }
 
 /* hide avatar & mobile overlay completely (if they still exist in DOM) */
@@ -131,13 +135,4 @@ body {
 #avatar,
 .block-mobile {
   display: none;
-}
-
-/* optional signature */
-.sig {
-  position: fixed;
-  right: 1vh;
-  bottom: 1vh;
-  color: purple;
-  z-index: 2;
 }

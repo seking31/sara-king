@@ -5,13 +5,13 @@ import About from './pages/About/About'
 import Resume from './pages/Resume/Resume'
 import Contact from './pages/Contact/Contact'
 import GitHubProjects from './pages/GitHubProjects/GitHubProjects'
-import AvatarPainter from './template/AvatartPainter'
+import MouseParticles from './template/MouseParticles'
 
 export default function App() {
   return (
     <>
     
-    <AvatarPainter />
+    <MouseParticles />
     <main className="main-content">
       <Routes>
         <Route path="/" element={<Home />} />

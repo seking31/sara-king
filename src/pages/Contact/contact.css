@@ -1,5 +1,4 @@
 .contact-form-container {
-    background: var(--primary-bg);
     color: var(--text-color);
     min-height: 100vh;
 }
@@ -8,7 +7,7 @@
     max-width: 500px;
     margin: auto;
     padding: calc(var(--spacing-unit) * 2);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--primary-bg);
     border: 1px solid var(--accent-color);
     border-radius: 12px;
 }

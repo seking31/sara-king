@@ -3,9 +3,8 @@ import Navbar from '../../components/Navbar'
 import { motion } from 'framer-motion'
 
 import heroImg from '../../assets/saraNeg_ii.svg'
-import linkedinIcon from '../../assets/linkedin.svg'
-import githubIcon from '../../assets/github.svg'
-import heroBg from '../../assets/perfect.gif'
+import linkedinIcon from '../../assets/linkedin-pink.svg'
+import githubIcon from '../../assets/github-pink.svg'
 
 export default function Home() {
     const iconVariants = {
@@ -25,12 +24,12 @@ export default function Home() {
   }
   return (
     <div className="site-container">
-      <Navbar />
+     
       <main className="main-content-home">
-        <section className="hero" style={{ backgroundImage: `url(${heroBg})` }}>
+        <section className="hero" >
           <img src={heroImg} alt="Illustration of Sara King" className="hero__image" />
         </section>
-
+   <Navbar />
         <nav className="social-links" aria-label="Social Media Links">
           <a href="https://www.linkedin.com/in/sara-king/" target="_blank" rel="noopener noreferrer">
               <motion.strong
@@ -52,6 +51,7 @@ export default function Home() {
           </a>
         </nav>
       </main>
+    
     </div>
   )
 }

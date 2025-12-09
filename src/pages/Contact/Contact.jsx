@@ -39,6 +39,7 @@ console.log( process.env.REACT_APP_EMAILJS_SERVICE_ID,
   };
 
   return (
+     <div className="site-container">
     <div className="contact-form-container">
        <Navbar />
       <motion.div  className="contact-form" initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }}>
@@ -95,5 +96,6 @@ console.log( process.env.REACT_APP_EMAILJS_SERVICE_ID,
         )}
       </motion.div >
     </div>
+     </div>
   );
 }

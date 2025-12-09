@@ -6,6 +6,7 @@ import './resume.css'
 
 export default function Resume() {
   return (
+    <div className="site-container">
     <div className="container">
       <Navbar />
 
@@ -31,6 +32,7 @@ export default function Resume() {
           <motion.img src={resume} alt="Sara E. King Resume 202512" className="resume-image" transition={{ type: 'spring', stiffness: 180 }} />
         </motion.div>
       </motion.div>
+    </div>
     </div>
   )
 }

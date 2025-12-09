@@ -1,8 +1,6 @@
 /* Scope styles to the projects section so it plays nicely with the rest of the site */
 .projects-section {
     padding: calc(var(--spacing-unit) * 2);
-    background-color: var(--primary-bg);
-    color: var(--text-color);
 }
 
 .projects-title {
