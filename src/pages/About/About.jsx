@@ -75,34 +75,19 @@ export default function About() {
               </motion.h1>
 
               <motion.p variants={item}>
-                I am a Full Stack Developer with a passion for building
-                accessible, user-centered digital experiences. With experience
-                across React, Next.js, Node.js, and modern JavaScript/TypeScript
-                ecosystems, I focus on crafting interfaces and systems that are
-                performant, inclusive, and maintainable.
+                Hi, I'm Sara, a full-stack developer who loves building thoughtful, 
+                accessible digital experiences. I've worked across the stack using React, Next.js, TypeScript, 
+                Node.js, Mongodb, and Express, always with an eye toward scalability and usability.
               </motion.p>
-
               <motion.p variants={item}>
-                My work blends thoughtful front-end engineering with strong
-                backend foundations. I specialize in semantic HTML,
-                WCAG-compliant design, API development, and component
-                architecture that scales across teams and products. I’m equally
-                comfortable collaborating with designers, mentoring developers,
-                or architecting solutions that enhance usability and long-term
-                reliability.
+                I currently work at Kohl's, 
+                where I also mentor interns in modern front-end practices, build internal tools, and worked on the sign in flow on the website.
+                 Before that, I contributed 
+                to enterprise systems in industries such as retail, a popular pizza chain, and hospitals.
               </motion.p>
-
               <motion.p variants={item}>
-                I’m driven by a commitment to accessibility, clear
-                communication, and clean, intentional code. Whether I’m building
-                an internal tool, refining a design system, or improving
-                developer workflows, my goal is always the same: deliver
-                intuitive, high-quality experiences for every user.
-              </motion.p>
-
-              <motion.p variants={item}>
-                Outside of engineering, I enjoy camping, exploring horror
-                novels, and dog training.
+                Whether I'm writing a new component, improving data pipelines, or refining keyboard navigation, my goal 
+                is the same: create intuitive, inclusive interfaces that genuinely help people.
               </motion.p>
             </motion.div>
           </div>
