@@ -157,7 +157,7 @@ export default function GitHubProjects() {
                     rel="noopener noreferrer"
                     className="project-link"
                   >
-                    <h3 className="project-name">⭐ {repo.name}</h3>
+                    <h3 className="project-name">🩷 {repo.name}</h3>
                     {repo.description && (
                       <p className="project-description">{repo.description}</p>
                     )}
