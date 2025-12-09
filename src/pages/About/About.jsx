@@ -42,14 +42,8 @@ export default function About() {
     <div className="site-container">
       <Navbar />
       <main>
-        <motion.section
-          id="aboutID"
-          className="about"
-          initial="hidden"
-          animate="show"
-          variants={container}
-        >
-          <div className="about-orbit" aria-hidden="true" />
+        
+          <div aria-hidden="true" />
 
           <div className="about-grid">
             {/* LEFT SIDE */}
@@ -112,7 +106,6 @@ export default function About() {
               </motion.p>
             </motion.div>
           </div>
-        </motion.section>
       </main>
     </div>
   )
