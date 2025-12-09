@@ -2,7 +2,6 @@
 .navbar {
     display: flex;
     position: relative;
-    justify-content: space-between;
     align-items: center;
     gap: calc(var(--spacing-unit) * 2);
     max-width: 100%;
@@ -136,7 +135,7 @@
     /* Open state */
     .navbar__menu.open {
         display: flex;
-        top: 60px;
+        top: 35px;
         right: var(--spacing-unit);
         width: auto;
         min-width: 200px;
