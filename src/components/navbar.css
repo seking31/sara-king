@@ -9,6 +9,13 @@
     padding: calc(var(--spacing-unit) * 0.5) var(--spacing-unit);
 }
 
+.nav-header {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    background: var(--primary-bg);
+}
+
 /* Brand cluster (animated hearts) */
 .navbar__brand-cluster {
     display: flex;
@@ -22,6 +29,37 @@
 }
 
 /* Heart styling */
+
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: calc(var(--spacing-unit) * 4);
+    padding: calc(var(--spacing-unit) * 2);
+}
+
+.social-links__icon {
+    width: 40px;
+    height: 40px;
+}
+
+.social-links__icon:hover {
+    transform: scale(1.1);
+    outline: none;
+}
+
+.navbar__heart {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    display: inline-block;
+    filter: drop-shadow(0 0 10px var(--accent-color));
+}
+
+.navbar__heart--right {
+    transform-origin: center;
+}
+
 .navbar__heart {
     font-size: calc(var(--spacing-unit) * 2);
     font-weight: bold;

@@ -1,0 +1,104 @@
+.hero {
+    padding-top: calc(var(--spacing-unit) * 5);
+    padding-bottom: calc(var(--spacing-unit) * 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../../assets/soothing13.gif') center / auto repeat fixed;
+}
+
+.hero__image {
+    max-width: 100%;
+    height: auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: calc(var(--spacing-unit) * 4);
+    padding: calc(var(--spacing-unit) * 2);
+}
+
+.social-links__icon {
+    width: 40px;
+    height: 40px;
+}
+
+.social-links__icon:hover {
+    transform: scale(1.1);
+    outline: none;
+}
+
+.navbar__heart {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    display: inline-block;
+    filter: drop-shadow(0 0 10px var(--accent-color));
+}
+
+.navbar__heart--right {
+    transform-origin: center;
+}
+
+.site-container {
+    padding-top: 0px;
+}
+
+
+/* ---------- MOUSE TRAIL / PARTICLES ONLY ---------- */
+
+.ball {
+    pointer-events: none;
+    position: absolute;
+    border-radius: 50%;
+    animation: implode 10s ease-in-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+}
+
+@keyframes implode {
+    0% {
+        transform: scale(0);
+    }
+
+    5%,
+    30% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+/* container that particles append into */
+#wrap {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* hide avatar & mobile overlay completely (if they still exist in DOM) */
+.frame,
+#avatar,
+.block-mobile {
+    display: none;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+
+    .hero {
+        padding-top: 0px;
+    }
+
+    .site-header {
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+}
