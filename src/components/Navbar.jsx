@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import './navbar.css'
@@ -9,13 +9,42 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const heart = '<3'
 
+  const menuRef = useRef(null)
+  const toggleRef = useRef(null)
+
   const handleToggle = () => {
-    setIsOpen((prev) => !prev)
+    setIsOpen(prev => !prev)
   }
 
   const handleLinkClick = () => {
     setIsOpen(false)
   }
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!isOpen) return
+
+      const menuEl = menuRef.current
+      const toggleEl = toggleRef.current
+
+      if (
+        (menuEl && menuEl.contains(event.target)) ||
+        (toggleEl && toggleEl.contains(event.target))
+      ) {
+        return
+      }
+
+      setIsOpen(false)
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [isOpen])
 
   const heartVariants = {
     initial: { scale: 0.8, opacity: 0, y: -10 },
@@ -45,14 +74,12 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <nav className="navbar" aria-label="Primary navigation">
-
         <motion.div
           className="navbar__brand-cluster"
           variants={brandClusterVariants}
           initial="initial"
           animate="animate"
         >
-
           <Link to="/" className="navbar__brand">
             <motion.strong
               className="navbar__heart navbar__heart--right"
@@ -64,39 +91,63 @@ export default function Navbar() {
             </motion.strong>
           </Link>
         </motion.div>
-                <div className="social-links" aria-label="Social Media Links">
-                  <a href="https://www.linkedin.com/in/sara-king/" target="_blank" rel="noopener noreferrer">
-                      <motion.strong
-                      className="navbar__heart navbar__heart--right"
-                      variants={heartVariants}
-                      whileHover="hover"
-                      whileTap={{ scale: 0.9 }}
-                    ><img src={linkedinIcon} alt="LinkedIn profile of Sara King" className="social-links__icon" />
-                 </motion.strong>
-                  </a>
-                  <a href="https://github.com/seking31" target="_blank" rel="noopener noreferrer">
-                     <motion.strong
-                      className="navbar__heart navbar__heart--right"
-                      variants={heartVariants}
-                      whileHover="hover"
-                      whileTap={{ scale: 0.9 }}
-                    > <img src={githubIcon} alt="GitHub profile of Sara King" className="social-links__icon" />
-                 </motion.strong>
-                  </a>
-                </div>
+
+        <div className="social-links" aria-label="Social Media Links">
+          <a
+            href="https://www.linkedin.com/in/sara-king/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <motion.strong
+              className="navbar__heart navbar__heart--right"
+              variants={heartVariants}
+              whileHover="hover"
+              whileTap={{ scale: 0.9 }}
+            >
+              <img
+                src={linkedinIcon}
+                alt="LinkedIn profile of Sara King"
+                className="social-links__icon"
+              />
+            </motion.strong>
+          </a>
+          <a
+            href="https://github.com/seking31"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <motion.strong
+              className="navbar__heart navbar__heart--right"
+              variants={heartVariants}
+              whileHover="hover"
+              whileTap={{ scale: 0.9 }}
+            >
+              <img
+                src={githubIcon}
+                alt="GitHub profile of Sara King"
+                className="social-links__icon"
+              />
+            </motion.strong>
+          </a>
+        </div>
+
         {/* Hamburger Button (mobile only via CSS) */}
         <button
           className="navbar__toggle"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
           onClick={handleToggle}
+          ref={toggleRef}              
         >
           <span className="hamburger" />
           <span className="hamburger" />
           <span className="hamburger" />
         </button>
 
-        <ul className={`navbar__menu ${isOpen ? 'open' : ''}`}>
+        <ul
+          className={`navbar__menu ${isOpen ? 'open' : ''}`}
+          ref={menuRef}                // NEW
+        >
           <li className="navbar__item">
             <Link to="/" className="navbar__link" onClick={handleLinkClick}>
               Home
@@ -113,12 +164,20 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="navbar__item">
-            <Link to="/projects" className="navbar__link" onClick={handleLinkClick}>
+            <Link
+              to="/projects"
+              className="navbar__link"
+              onClick={handleLinkClick}
+            >
               Projects
             </Link>
           </li>
           <li className="navbar__item">
-            <Link to="/contact" className="navbar__link" onClick={handleLinkClick}>
+            <Link
+              to="/contact"
+              className="navbar__link"
+              onClick={handleLinkClick}
+            >
               Contact
             </Link>
           </li>
