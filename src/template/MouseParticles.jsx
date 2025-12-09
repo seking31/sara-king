@@ -71,11 +71,11 @@ export default function MouseParticles() {
       ball.style.top = `${y}px`;
 
 const colors = [
-  // "hsla(316, 75%, 44%, 1)",    // magenta / deep pink
+  "hsla(316, 75%, 44%, 1)",    // magenta / deep pink
   "hsla(210, 60%, 82%, 0.6)",  // light sky blue
   "hsla(197, 100%, 55%, 1)",    // bright sky blue
-  // "hsla(0, 0%, 100%, 1)",      // pure white
-  // "hsla(12, 88%, 72%, 0.9)",   // peach / soft orange-red
+  "hsla(0, 0%, 100%, 1)",      // pure white
+  "hsla(12, 88%, 72%, 0.9)",   // peach / soft orange-red
 ];
 
 
