@@ -1,0 +1,75 @@
+.cube-container {
+    padding-top: 8rem;
+    perspective: 800px;
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+}
+
+
+
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Shared face base */
+.side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    border: 1px solid white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+}
+
+/* Individual cube faces – now with solid colors 
+
+#C51887 #C9D9EE99 #FFFFFF #F3A681E6 #F8E298B3
+*/
+.front {
+    transform: rotateY(0deg) translateZ(100px);
+    background-color: black;
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+    background-color: black;
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+    background-color: black;
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+    background-color: black;
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+    background-color: black;
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+    background-color: black;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+
+    .cube-container {
+        padding-top: 5rem;
+
+    }
+
+}

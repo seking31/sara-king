@@ -6,6 +6,7 @@ import Resume from './pages/Resume/Resume'
 import Contact from './pages/Contact/Contact'
 import GitHubProjects from './pages/GitHubProjects/GitHubProjects'
 import MouseParticles from './template/MouseParticles'
+import BounceSquare from './components/BounceSquare/BounceSquare'
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/resume" element={<Resume />} />
         <Route path="/projects" element={<GitHubProjects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/bounce" element={<BounceSquare />} />
       </Routes>
     </main>
     </>

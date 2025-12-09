@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../../assets/soothing13.gif') center / cover no-repeat fixed;
+    background: url('../../assets/sky.jpg') center / cover no-repeat fixed;
 }
 
 .hero__image {

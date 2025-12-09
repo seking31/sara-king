@@ -176,6 +176,7 @@
         top: 35px;
         right: var(--spacing-unit);
         width: auto;
+        height: 25rem;
         min-width: 200px;
         z-index: 1;
     }
