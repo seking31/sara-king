@@ -53,8 +53,6 @@ export default function MouseParticles() {
     const wrap = wrapRef.current;
     if (!wrap) return;
 
-    let hue = 0;
-
     const interval = setInterval(() => {
       const m = posRef.current;
       if (m.x < 0) return;
@@ -72,8 +70,16 @@ export default function MouseParticles() {
       ball.style.left = `${x}px`;
       ball.style.top = `${y}px`;
 
-      hue = (hue + 1) % 360;
-      ball.style.background = `hsla(${hue}, 90%, 60%, 0.6)`;
+      const colors = [
+  "hsla(316, 75%, 44%, 1)",
+  "hsla(210, 60%, 82%, 0.6)",
+  "hsla(0, 0%, 100%, 1),",
+  "hsla(12, 88%, 72%, 0.9)",   
+  "hsla(48, 94%, 78%, 0.7)"  
+];
+
+ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+
 
       ball.addEventListener("animationend", () => ball.remove());
       wrap.appendChild(ball);

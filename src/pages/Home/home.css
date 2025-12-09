@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../../assets/soothing13.gif') center / auto repeat fixed;
+    background: url('../../assets/soothing13.gif') center / cover no-repeat fixed;
 }
 
 .hero__image {
@@ -90,10 +90,6 @@
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-
-    .hero {
-        background: url('../../assets/soothing13.gif') center / 100% 35% repeat fixed;
-    }
 
     .site-header {
         height: auto;
