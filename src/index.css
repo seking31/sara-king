@@ -46,7 +46,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('./assets/soothing13.gif') center / 100% auto repeat fixed;
+  background: url('./assets/soothing13.gif') center / auto repeat fixed;
   image-rendering: pixelated;
 }
 
