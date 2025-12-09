@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import './navbar.css'
-import linkedinIcon from '../assets/linkedin-pink.svg'
-import githubIcon from '../assets/github-pink.svg'
+import linkedinIcon from '../../assets/linkedin-pink.svg'
+import githubIcon from '../../assets/github-pink.svg'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)

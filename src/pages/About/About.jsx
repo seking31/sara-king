@@ -1,11 +1,14 @@
 // src/pages/About.js
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import './about.css'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/Navbar/Navbar'
 import headshot from '../../assets/headshot.png'
 
 export default function About() {
+  const [showScrollTop, setShowScrollTop] = useState(false)
+ const sectionRef = useRef(null)
+
   const container = {
     hidden: { opacity: 0, y: 20 },
     show: {
@@ -25,6 +28,36 @@ export default function About() {
     show: { opacity: 1, y: 0 },
   }
 
+  // Show / hide "back to top" button on mobile when scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      const isMobile = window.innerWidth <= 768
+      if (!isMobile) {
+        setShowScrollTop(false)
+        return
+      }
+
+      // Show button after user scrolls a bit down the page
+      if (window.scrollY > 200) {
+        setShowScrollTop(true)
+      } else {
+        setShowScrollTop(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+    const scrollToTopOfSection = () => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+  }
+
   // Detect touch / coarse pointer
   const isTouchDevice =
     typeof window !== 'undefined' &&
@@ -39,12 +72,9 @@ export default function About() {
       }
 
   return (
-    <div className="site-container">
+    <div className="site-container" ref={sectionRef}>
       <Navbar />
-      <main>
-        
-          <div aria-hidden="true" />
-
+      <main >
           <div className="about-grid">
             {/* LEFT SIDE */}
             <aside className="about-aside">
@@ -92,6 +122,16 @@ export default function About() {
             </motion.div>
           </div>
       </main>
+            {/* Mobile-only back to top button */}
+      {showScrollTop && (
+        <button
+          className="back-to-top-btn"
+          type="button"
+          onClick={scrollToTopOfSection}
+        >
+          ↑ Top
+        </button>
+      )}
     </div>
   )
 }

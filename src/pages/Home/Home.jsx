@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/Navbar/Navbar'
 import './home.css'
 import heroImg from '../../assets/saraNeg_ii.svg'
 

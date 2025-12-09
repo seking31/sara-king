@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import './githubprojects.css'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/Navbar/Navbar'
 
 export default function GitHubProjects() {
   const [repos, setRepos] = useState([])
@@ -117,7 +117,7 @@ export default function GitHubProjects() {
   }
 
   return (
-    <div className="site-container">
+    <div className="site-container" ref={sectionRef}>
       <Navbar />
       <motion.section
         ref={sectionRef}

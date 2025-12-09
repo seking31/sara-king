@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./contact.css";
 import { motion } from 'framer-motion'
 import emailjs from "@emailjs/browser";
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/Navbar/Navbar'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
