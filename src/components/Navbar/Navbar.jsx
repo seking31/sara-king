@@ -221,8 +221,8 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-               <button
-          className="navbar__link"
+         <button
+          className="navbar__toggle_close"
           aria-label={isOpen ? 'Close main menu' : 'Open main menu'}
           aria-expanded={isOpen}
           aria-controls="primary-navigation-menu"

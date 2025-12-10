@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import './about.css'
 import Navbar from '../../components/Navbar/Navbar'
-import headshot from '../../assets/sara.png'
+import headshot from '../../assets/sara2.png'
 
 export default function About() {
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -94,7 +94,7 @@ export default function About() {
           <aside className="about-aside" aria-label="About Sara">
             
             {/* Photo */}
-            <motion.div className="about-photo-wrapper" {...hoverProps}>
+            <motion.div className="about-card" {...hoverProps}>
               <motion.img
                 src={headshot}
                 alt="Portrait of Sara E. King"
