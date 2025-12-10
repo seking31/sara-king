@@ -20,6 +20,7 @@
 .contact-description {
     margin-bottom: var(--spacing-unit);
     line-height: 1.5;
+    color: var(--muted-text);
 }
 
 .text-2xl {
