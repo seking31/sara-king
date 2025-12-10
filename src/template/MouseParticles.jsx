@@ -121,7 +121,7 @@ export default function MouseParticles() {
 
       ball.addEventListener("animationend", () => ball.remove());
       wrap.appendChild(ball);
-    }, 30);
+    }, 90);
 
     return () => clearInterval(interval);
   }, [motionEnabled]);

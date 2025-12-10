@@ -1,13 +1,15 @@
 /* ---------- MOUSE TRAIL / PARTICLES ONLY ---------- */
 
+
 .ball {
     pointer-events: none;
     position: absolute;
     border-radius: 50%;
-    animation: implode 10s ease-in-out;
+    animation: implode 5s ease-in-out;
     animation-delay: 0.2s;
     animation-fill-mode: both;
 }
+
 
 @keyframes implode {
     0% {

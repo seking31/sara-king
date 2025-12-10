@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import './about.css'
 import Navbar from '../../components/Navbar/Navbar'
-import headshot from '../../assets/headshot.png'
+import headshot from '../../assets/sara.png'
 
 export default function About() {
   const [showScrollTop, setShowScrollTop] = useState(false)
