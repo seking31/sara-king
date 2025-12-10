@@ -220,14 +220,14 @@ export default function Navbar() {
               Contact
             </Link>
           </li>
-          <li className="navbar__item">
+          <li>
                <button
-          className="navbar__toggle_close"
+          className="navbar__link"
           aria-label={isOpen ? 'Close main menu' : 'Open main menu'}
           aria-expanded={isOpen}
           aria-controls="primary-navigation-menu"
           onClick={handleToggle}
-          ref={toggleRef}><strong>X</strong></button>
+          ref={toggleRef}>X</button>
           </li>
         </ul>
       </nav>
