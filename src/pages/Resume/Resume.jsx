@@ -93,7 +93,7 @@ export default function Resume() {
               alt="Visual representation of the resume for Sara E. King, Full Stack Developer."
               className="resume-image"
             />
-            <figcaption className="resume-figcaption">
+            <figcaption className="resume-figcaption visually-hidden">
               Image-based resume for Sara E. King.
             </figcaption>
           </motion.figure>

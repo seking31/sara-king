@@ -34,6 +34,7 @@
 
 /* Header / intro */
 .resume-header {
+    background: var(--primary-bg);
     max-width: 900px;
     width: 100%;
     margin-bottom: calc(var(--spacing-unit) * 2);
