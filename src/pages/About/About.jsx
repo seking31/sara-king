@@ -81,12 +81,11 @@ export default function About() {
   }
 
   return (
-    <div className="site-container">
+    <div className="site-container" ref={sectionRef}>
       <Navbar />
 
       <main 
         id="main-content"
-        ref={sectionRef}
         aria-labelledby={titleId}
       >
         <div className="about-grid">

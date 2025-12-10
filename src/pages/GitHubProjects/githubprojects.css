@@ -146,33 +146,6 @@
     opacity: 0.8;
 }
 
-/* Back-to-top button (reuses style pattern from your other pages) */
-.back-to-top-btn {
-    position: fixed;
-    right: 1.5rem;
-    bottom: 1.5rem;
-    padding: 0.6rem 1rem;
-    border-radius: 999px;
-    border: none;
-    background: var(--accent-color);
-    color: #000;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    z-index: 10;
-}
-
-.back-to-top-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.back-to-top-btn:focus-visible {
-    outline: 2px solid #fff;
-    outline-offset: 3px;
-}
-
 /* Responsive tweaks */
 @media screen and (max-width: 768px) {
     .projects-main {

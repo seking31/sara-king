@@ -126,11 +126,10 @@ export default function GitHubProjects() {
   const statusRegionId = 'github-projects-status'
 
   return (
-    <div className="site-container">
+    <div className="site-container"  ref={mainRef}>
       <Navbar />
 
       <main
-        ref={mainRef}
         className="projects-main"
         aria-labelledby={pageHeadingId}
       >

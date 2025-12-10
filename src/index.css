@@ -43,6 +43,7 @@ body {
   padding: 0 1rem 2rem;
 }
 
+/* Back-to-top button (reuses style pattern from your other pages) */
 .back-to-top-btn {
   position: fixed;
   bottom: 1.5rem;
@@ -66,10 +67,16 @@ body {
     opacity 0.2s ease;
 }
 
-.back-to-top-btn:active {
-  transform: translateY(1px) scale(0.98);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+.back-to-top-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
+
+.back-to-top-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
 
 
 /*Accessible Styles */

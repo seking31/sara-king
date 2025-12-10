@@ -34,9 +34,8 @@
     color: black;
     padding: 1.5rem 1.75rem;
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--muted-text);
     backdrop-filter: blur(12px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .about-card h2 {
@@ -84,6 +83,7 @@
 
 .about-title {
     font-size: calc(var(--spacing-unit) * 2.5);
+    color: var(--muted-text);
     margin-bottom: 1.5rem;
     margin-top: 0px;
 }
