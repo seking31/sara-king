@@ -175,6 +175,8 @@ export default function Navbar() {
           <span className="hamburger" />
         </button>
 
+     
+
         <ul
           id="primary-navigation-menu"
           className={`navbar__menu ${isOpen ? 'open' : ''}`}
@@ -217,6 +219,15 @@ export default function Navbar() {
             >
               Contact
             </Link>
+          </li>
+          <li>
+               <button
+          className="navbar__link"
+          aria-label={isOpen ? 'Close main menu' : 'Open main menu'}
+          aria-expanded={isOpen}
+          aria-controls="primary-navigation-menu"
+          onClick={handleToggle}
+          ref={toggleRef}>X</button>
           </li>
         </ul>
       </nav>
