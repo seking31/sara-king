@@ -93,8 +93,8 @@
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     .cube-container {
+        margin-top: 1rem;
         padding-top: 5rem;
-        margin: 0px;
         border: 1px solid white;
         height: min-content;
         border-radius: 12px

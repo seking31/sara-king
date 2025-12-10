@@ -38,7 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../../assets/sky.jpg') center / cover no-repeat fixed;
+    background: url('../../assets/bird-pink.jpg') center / cover no-repeat fixed;
 }
 
 .hero__content {
@@ -54,20 +54,21 @@
 
 /* Main heading */
 .hero__title {
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
     color: black;
-    margin-top: calc(var(--spacing-unit) * 2);
     margin-bottom: calc(var(--spacing-unit) * 0.5);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: 1rem;
+    text-shadow: var(--white-text-shadow);
+    letter-spacing: 0.2em
 }
 
 /* Short description under heading */
 .hero__subtitle {
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    text-shadow: var(--white-text-shadow);
     color: black;
     margin: 0;
     font-size: 3rem;
     line-height: 1.5;
+    letter-spacing: 0.2em
 }
 
 /* ---------- SOCIAL LINKS (if used on home) ---------- */
@@ -104,74 +105,35 @@
     transform-origin: center;
 }
 
-/* ---------- MOUSE TRAIL / PARTICLES ONLY ---------- */
-
-.ball {
-    pointer-events: none;
-    position: absolute;
-    border-radius: 50%;
-    animation: implode 10s ease-in-out;
-    animation-delay: 0.2s;
-    animation-fill-mode: both;
-}
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-    .ball {
-        animation: none;
-    }
 
     .hero {
         background-attachment: scroll;
     }
-}
-
-@keyframes implode {
-    0% {
-        transform: scale(0);
-    }
-
-    5%,
-    30% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: scale(0);
-    }
-}
-
-/* container that particles append into */
-#wrap {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* hide avatar & mobile overlay completely (if they still exist in DOM) */
-.frame,
-#avatar,
-.block-mobile {
-    display: none;
 }
 
 /* ---------- Responsive Styles ---------- */
 @media screen and (max-width: 768px) {
     .hero {
+        height: 16rem;
         padding-top: calc(var(--spacing-unit) * 4);
         padding-bottom: calc(var(--spacing-unit) * 4);
         background-attachment: scroll;
-        /* fixed backgrounds can be janky on mobile */
+        border-radius: var(--border-radius);
+        background: url('../../assets/bird-green.jpg') center / cover no-repeat fixed;
     }
 
     .hero__title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .hero__content {
+        padding: 0
     }
 
     .hero__subtitle {
-
         font-weight: 600;
         font-size: 0.95rem;
     }
