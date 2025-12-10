@@ -1,6 +1,6 @@
 // src/components/GitHubProjects.js
 import React, { useEffect, useState, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import './githubprojects.css'
 import Navbar from '../../components/Navbar/Navbar'
 
@@ -11,22 +11,23 @@ export default function GitHubProjects() {
   const [page, setPage] = useState(1)
   const [showScrollTop, setShowScrollTop] = useState(false)
 
-  const sectionRef = useRef(null)
+  const mainRef = useRef(null)
 
   const username = process.env.REACT_APP_USERNAME
-  // This is how many items you want visible on-screen per page
   const pageSize = parseInt(process.env.REACT_APP_PERPAGE || '9', 10)
+
+  const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
     async function fetchRepos() {
       setLoading(true)
       setError(null)
+
       try {
         if (!username) {
           throw new Error('GitHub username is not configured.')
         }
 
-        // Fetch a big enough set of repos once (100 is the GitHub API max per page)
         const res = await fetch(
           `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
         )
@@ -47,7 +48,7 @@ export default function GitHubProjects() {
     fetchRepos()
   }, [username])
 
-  // Show / hide "back to top" button on mobile when scrolling
+  // Show / hide "Back to top" button on mobile when scrolling
   useEffect(() => {
     const handleScroll = () => {
       const isMobile = window.innerWidth <= 768
@@ -56,12 +57,7 @@ export default function GitHubProjects() {
         return
       }
 
-      // Show button after user scrolls a bit down the page
-      if (window.scrollY > 200) {
-        setShowScrollTop(true)
-      } else {
-        setShowScrollTop(false)
-      }
+      setShowScrollTop(window.scrollY > 200)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -69,8 +65,8 @@ export default function GitHubProjects() {
   }, [])
 
   const scrollToTopOfSection = () => {
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({
+    if (mainRef.current) {
+      mainRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       })
@@ -92,127 +88,199 @@ export default function GitHubProjects() {
     setPage((prev) => Math.min(totalPages, prev + 1))
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.2,
-        type: 'spring',
-        stiffness: 100,
-      },
-    },
-  }
+  const containerVariants = shouldReduceMotion
+    ? { hidden: {}, show: {} }
+    : {
+        hidden: { opacity: 0, y: 20 },
+        show: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            staggerChildren: 0.08,
+            delayChildren: 0.2,
+            type: 'spring',
+            stiffness: 100,
+          },
+        },
+      }
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.96 },
-    show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { type: 'spring', stiffness: 130, damping: 12 },
-    },
-  }
+  const cardVariants = shouldReduceMotion
+    ? { hidden: {}, show: {} }
+    : {
+        hidden: { opacity: 0, y: 20, scale: 0.96 },
+        show: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: { type: 'spring', stiffness: 130, damping: 12 },
+        },
+      }
+
+  const sectionInitial = shouldReduceMotion
+    ? { opacity: 1, y: 0 }
+    : { opacity: 0, y: 40 }
+
+  const sectionAnimate = { opacity: 1, y: 0 }
+
+  const pageHeadingId = 'github-projects-heading'
+  const statusRegionId = 'github-projects-status'
 
   return (
-    <div className="site-container" ref={sectionRef}>
+    <div className="site-container">
       <Navbar />
-      <motion.section
-        ref={sectionRef}
-        className="projects-section"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, type: 'spring', stiffness: 120 }}
+
+      <main
+        ref={mainRef}
+        className="projects-main"
+        aria-labelledby={pageHeadingId}
       >
-        <motion.h2
-          className="projects-title"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+        <motion.section
+          className="projects-section"
+          initial={sectionInitial}
+          animate={sectionAnimate}
+          transition={
+            shouldReduceMotion
+              ? undefined
+              : { duration: 0.6, type: 'spring', stiffness: 120 }
+          }
         >
-          GitHub Projects
-        </motion.h2>
+          <motion.h1
+            id={pageHeadingId}
+            className="projects-title"
+            initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
+            animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={shouldReduceMotion ? undefined : { delay: 0.1 }}
+          >
+            GitHub Projects
+          </motion.h1>
 
-        {loading && <p className="projects-status">Loading...</p>}
-        {error && <p className="projects-error">Error: {error}</p>}
-        {!loading && !error && repos.length === 0 && (
-          <p className="projects-status">No repositories found.</p>
-        )}
+          <p className="projects-intro">
+            A list of my public GitHub repositories, sorted by most recently
+            updated. Use the pagination controls to browse more projects.
+          </p>
 
-        {!loading && !error && visibleRepos.length > 0 && (
-          <>
-            {/* Pagination controls */}
-            <div className="projects-pagination">
-              <button
-                className="projects-page-button"
-                onClick={handlePrev}
-                disabled={currentPage === 1 || loading}
+          {/* Status / feedback for screen readers */}
+          <div
+            id={statusRegionId}
+            className="projects-status-region"
+            role="status"
+            aria-live="polite"
+          >
+            {loading && <p className="projects-status">Loading projects…</p>}
+            {error && (
+              <p className="projects-error">
+                Error loading projects: {error}
+              </p>
+            )}
+            {!loading && !error && repos.length === 0 && (
+              <p className="projects-status">No repositories found.</p>
+            )}
+          </div>
+
+          {!loading && !error && visibleRepos.length > 0 && (
+            <>
+              {/* Pagination controls */}
+              <nav
+                className="projects-pagination"
+                aria-label="GitHub projects pagination"
               >
-                ‹ Prev
-              </button>
-
-              <span className="projects-page-indicator">
-                Page {currentPage} of {totalPages}
-              </span>
-
-              <button
-                className="projects-page-button"
-                onClick={handleNext}
-                disabled={currentPage === totalPages || loading}
-              >
-                Next ›
-              </button>
-            </div>
-            <motion.ul
-              className="projects-list"
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-            >
-              {visibleRepos.map((repo) => (
-                <motion.li
-                  key={repo.id}
-                  className="project-card"
-                  variants={cardVariants}
-                  whileHover={{
-                    y: -6,
-                    scale: 1.03,
-                    boxShadow: '0 12px 30px rgba(0,0,0,0.15)',
-                  }}
-                  transition={{ type: 'spring', stiffness: 200 }}
+                <button
+                  className="projects-page-button"
+                  onClick={handlePrev}
+                  disabled={currentPage === 1}
+                  aria-label={
+                    currentPage === 1
+                      ? 'Previous page, current page is the first page'
+                      : `Go to previous page, page ${currentPage - 1}`
+                  }
                 >
-                  <a
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    <h3 className="project-name">🩷 {repo.name}</h3>
-                    {repo.description && (
-                      <p className="project-description">
-                        {repo.description}
-                      </p>
-                    )}
-                  </a>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </>
-        )}
-      </motion.section>
+                  ‹ Prev
+                </button>
 
-      {/* Mobile-only back to top button */}
-      {showScrollTop && (
-        <button
-          className="back-to-top-btn"
-          type="button"
-          onClick={scrollToTopOfSection}
-        >
-          ↑ Top
-        </button>
-      )}
+                <span
+                  className="projects-page-indicator"
+                  aria-live="polite"
+                >
+                  Page {currentPage} of {totalPages}
+                </span>
+
+                <button
+                  className="projects-page-button"
+                  onClick={handleNext}
+                  disabled={currentPage === totalPages}
+                  aria-label={
+                    currentPage === totalPages
+                      ? 'Next page, current page is the last page'
+                      : `Go to next page, page ${currentPage + 1}`
+                  }
+                >
+                  Next ›
+                </button>
+              </nav>
+
+              <motion.ul
+                className="projects-list"
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+                aria-label="List of GitHub repositories"
+              >
+                {visibleRepos.map((repo) => (
+                  <motion.li
+                    key={repo.id}
+                    className="project-card"
+                    variants={cardVariants}
+                    whileHover={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            y: -6,
+                            scale: 1.03,
+                            boxShadow: '0 12px 30px rgba(0,0,0,0.15)',
+                          }
+                    }
+                    transition={
+                      shouldReduceMotion
+                        ? undefined
+                        : { type: 'spring', stiffness: 200 }
+                    }
+                  >
+                    <a
+                      href={repo.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      aria-label={`${repo.name}${repo.description ? `: ${repo.description}` : ''}`}
+                    >
+                      <h2 className="project-name">
+                        <span aria-hidden="true">🩷 </span>
+                        <span>{repo.name}</span>
+                      </h2>
+                      {repo.description && (
+                        <p className="project-description">
+                          {repo.description}
+                        </p>
+                      )}
+                    </a>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </>
+          )}
+        </motion.section>
+
+        {/* Mobile-only back to top button */}
+        {showScrollTop && (
+          <button
+            className="back-to-top-btn"
+            type="button"
+            onClick={scrollToTopOfSection}
+            aria-label="Back to top of projects section"
+          >
+            ↑ Top
+          </button>
+        )}
+      </main>
     </div>
   )
 }

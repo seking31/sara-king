@@ -1,3 +1,37 @@
+.site-container {
+    padding-top: 0;
+    position: relative;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--accent-color);
+    color: #000;
+    border-radius: 4px;
+    text-decoration: none;
+    z-index: 1000;
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+/* Main content wrapper (if you want further layout control) */
+.main-content-home {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- HERO ---------- */
+
 .hero {
     padding-top: calc(var(--spacing-unit) * 5);
     padding-bottom: calc(var(--spacing-unit) * 5);
@@ -7,10 +41,36 @@
     background: url('../../assets/sky.jpg') center / cover no-repeat fixed;
 }
 
+.hero__content {
+    text-align: center;
+    max-width: 720px;
+    padding: 0 var(--spacing-unit);
+}
+
 .hero__image {
     max-width: 100%;
     height: auto;
 }
+
+/* Main heading */
+.hero__title {
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    color: black;
+    margin-top: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+/* Short description under heading */
+.hero__subtitle {
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    color: black;
+    margin: 0;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+/* ---------- SOCIAL LINKS (if used on home) ---------- */
 
 .social-links {
     display: flex;
@@ -22,13 +82,16 @@
 .social-links__icon {
     width: 40px;
     height: 40px;
+    transition: transform 0.2s ease;
 }
 
-.social-links__icon:hover {
+.social-links__icon:hover,
+.social-links__icon:focus-visible {
     transform: scale(1.1);
     outline: none;
 }
 
+/* Navbar heart styling (if navbar on hero) */
 .navbar__heart {
     font-size: 2rem;
     font-weight: bold;
@@ -41,11 +104,6 @@
     transform-origin: center;
 }
 
-.site-container {
-    padding-top: 0px;
-}
-
-
 /* ---------- MOUSE TRAIL / PARTICLES ONLY ---------- */
 
 .ball {
@@ -55,6 +113,17 @@
     animation: implode 10s ease-in-out;
     animation-delay: 0.2s;
     animation-fill-mode: both;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .ball {
+        animation: none;
+    }
+
+    .hero {
+        background-attachment: scroll;
+    }
 }
 
 @keyframes implode {
@@ -88,13 +157,22 @@
     display: none;
 }
 
-/* Responsive Styles */
+/* ---------- Responsive Styles ---------- */
 @media screen and (max-width: 768px) {
-
-    .site-header {
-        height: auto;
-        flex-direction: row;
-        justify-content: space-between;
+    .hero {
+        padding-top: calc(var(--spacing-unit) * 4);
+        padding-bottom: calc(var(--spacing-unit) * 4);
+        background-attachment: scroll;
+        /* fixed backgrounds can be janky on mobile */
     }
 
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .hero__subtitle {
+
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
 }

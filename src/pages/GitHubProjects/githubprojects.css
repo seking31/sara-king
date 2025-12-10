@@ -1,25 +1,45 @@
+/* Main area wrapper for projects page */
+.projects-main {
+    min-height: 100vh;
+    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+}
+
 /* Scope styles to the projects section so it plays nicely with the rest of the site */
 .projects-section {
     padding: calc(var(--spacing-unit) * 2);
 }
 
+/* Heading and intro */
 .projects-title {
     font-size: 1.8rem;
     margin: 0 0 var(--spacing-unit);
     text-align: center;
 }
 
-/* Status / error text */
+.projects-intro {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-unit);
+    text-align: center;
+    line-height: 1.5;
+    color: var(--muted-text);
+}
+
+/* Status / error text + region */
+.projects-status-region {
+    min-height: 1.2rem;
+    /* prevents layout jump when messages appear */
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
 .projects-status {
     color: var(--muted-text);
     font-size: 0.95rem;
-    text-align: center;
 }
 
 .projects-error {
     color: var(--accent-color);
-    font-weight: bold;
-    text-align: center;
+    font-weight: 600;
 }
 
 /* List layout */
@@ -44,6 +64,7 @@
         border-color 0.2s ease;
 }
 
+/* On motion-hover, Framer handles transform; this fallback is for non-motion hover */
 .project-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
@@ -57,6 +78,13 @@
     display: block;
 }
 
+/* Visible focus for keyboard users */
+.project-link:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
 /* Name + description */
 .project-name {
     font-size: var(--spacing-unit);
@@ -66,19 +94,12 @@
 .project-description {
     font-size: 0.9rem;
     color: var(--muted-text);
-    margin: 0 0 calc(var(--spacing-unit) * 0.75);
+    margin: 0;
 }
 
-/* Tags (language + stars) */
-.project-tag {
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 999px;
-    padding: 0.25rem 0.7rem;
-    font-size: 0.75rem;
-    color: var(--muted-text);
-}
-
+/* Pagination controls */
 .projects-pagination {
+    background: black;
     margin-top: calc(var(--spacing-unit) * 2);
     display: flex;
     justify-content: center;
@@ -90,21 +111,34 @@
     padding: 0.4rem 0.9rem;
     border-radius: 999px;
     border: 1px solid var(--accent-color);
-    background: transparent;
-    color: var(--text-color);
+    color: var(--accent-color);
     cursor: pointer;
     font-size: 0.9rem;
-    transition: background 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease,
+        opacity 0.2s ease;
 }
 
+/* Hover only when enabled */
 .projects-page-button:hover:not(:disabled) {
     background: var(--accent-color);
+    color: white;
     transform: translateY(-1px);
 }
 
+/* Focus outline for pagination buttons */
+.projects-page-button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+/* Disabled state */
 .projects-page-button:disabled {
-    opacity: 0.4;
+    opacity: .5;
     cursor: default;
+    background: var(--accent-color);
+    color: white;
 }
 
 .projects-page-indicator {
@@ -112,14 +146,52 @@
     opacity: 0.8;
 }
 
+/* Back-to-top button (reuses style pattern from your other pages) */
+.back-to-top-btn {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent-color);
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 10;
+}
 
+.back-to-top-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top-btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+/* Responsive tweaks */
 @media screen and (max-width: 768px) {
+    .projects-main {
+        padding: var(--spacing-unit);
+    }
 
     .projects-section {
         padding: var(--spacing-unit);
     }
 
     .projects-title {
+        background-color: black;
         font-size: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .projects-intro {
+        background-color: black;
+        font-size: 1rem;
+        border-radius: 8px;
     }
 }

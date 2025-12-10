@@ -11,6 +11,7 @@ export default function Navbar() {
 
   const menuRef = useRef(null)
   const toggleRef = useRef(null)
+  const firstMenuLinkRef = useRef(null)
 
   const handleToggle = () => {
     setIsOpen(prev => !prev)
@@ -18,6 +19,9 @@ export default function Navbar() {
 
   const handleLinkClick = () => {
     setIsOpen(false)
+    if (toggleRef.current) {
+      toggleRef.current.focus()
+    }
   }
 
   useEffect(() => {
@@ -44,6 +48,30 @@ export default function Navbar() {
       document.removeEventListener('mousedown', handleClickOutside)
       document.removeEventListener('touchstart', handleClickOutside)
     }
+  }, [isOpen])
+
+  // Focus first menu item when opened
+  useEffect(() => {
+    if (isOpen && firstMenuLinkRef.current) {
+      firstMenuLinkRef.current.focus()
+    }
+  }, [isOpen])
+
+  // Close on Escape and restore focus
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+        if (toggleRef.current) {
+          toggleRef.current.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen])
 
   const heartVariants = {
@@ -81,18 +109,20 @@ export default function Navbar() {
           animate="animate"
         >
           <Link to="/" className="navbar__brand">
+            <span className="visually-hidden">Home</span>
             <motion.strong
               className="navbar__heart navbar__heart--right"
               variants={heartVariants}
               whileHover="hover"
               whileTap={{ scale: 0.9 }}
+              aria-hidden="true"
             >
               {heart}
             </motion.strong>
           </Link>
         </motion.div>
 
-        <div className="social-links" aria-label="Social Media Links">
+        <div className="social-links" aria-label="Social media links">
           <a
             href="https://www.linkedin.com/in/sara-king/"
             target="_blank"
@@ -134,10 +164,11 @@ export default function Navbar() {
         {/* Hamburger Button (mobile only via CSS) */}
         <button
           className="navbar__toggle"
-          aria-label="Toggle menu"
+          aria-label={isOpen ? 'Close main menu' : 'Open main menu'}
           aria-expanded={isOpen}
+          aria-controls="primary-navigation-menu"
           onClick={handleToggle}
-          ref={toggleRef}              
+          ref={toggleRef}
         >
           <span className="hamburger" />
           <span className="hamburger" />
@@ -145,11 +176,17 @@ export default function Navbar() {
         </button>
 
         <ul
+          id="primary-navigation-menu"
           className={`navbar__menu ${isOpen ? 'open' : ''}`}
-          ref={menuRef}                // NEW
+          ref={menuRef}
         >
           <li className="navbar__item">
-            <Link to="/" className="navbar__link" onClick={handleLinkClick}>
+            <Link
+              to="/"
+              className="navbar__link"
+              onClick={handleLinkClick}
+              ref={firstMenuLinkRef}
+            >
               Home
             </Link>
           </li>

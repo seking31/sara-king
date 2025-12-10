@@ -1,10 +1,75 @@
-.container {}
-
-.download-bar {
-    display: flex;
-    margin-bottom: calc(var(--spacing-unit)* 2);
+.site-container {
+    position: relative;
 }
 
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--accent-color);
+    color: #000;
+    border-radius: 4px;
+    text-decoration: none;
+    z-index: 1000;
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+/* Main resume layout */
+.resume-main {
+    min-height: 100vh;
+    padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header / intro */
+.resume-header {
+    max-width: 900px;
+    width: 100%;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    text-align: center;
+}
+
+.resume-title {
+    margin: 0 0 calc(var(--spacing-unit) * 0.5);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.resume-description {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--muted-text);
+}
+
+/* Wrapper for download + image */
+.resume-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--spacing-unit) * 2);
+    max-width: 1100px;
+    width: 100%;
+}
+
+/* Download bar */
+.download-bar {
+    display: flex;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    width: 100%;
+    justify-content: flex-start;
+}
+
+/* Download button */
 .download-btn {
     background: var(--accent-color);
     color: var(--text-color);
@@ -13,17 +78,29 @@
     text-decoration: none;
     font-size: larger;
     font-weight: bold;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
+/* Hover is mostly handled by Framer; this is a fallback */
 .download-btn:hover {
     transform: scale(1.05);
 }
 
-.resume-wrapper {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: calc(var(--spacing-unit)* 2);
+/* Focus-visible for keyboard users */
+.download-btn:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 3px;
+}
+
+/* Figure + image */
+.resume-figure {
+    margin: 0;
+    width: 100%;
 }
 
 .resume-image {
@@ -32,11 +109,31 @@
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: block;
 }
 
+/* Figcaption for extra context (low visual prominence) */
+.resume-figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--muted-text);
+    text-align: center;
+}
 
-
+/* Responsive tweaks */
 @media screen and (max-width: 768px) {
+    .resume-main {
+        padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+    }
+
+    .resume-wrapper {
+        padding: var(--spacing-unit);
+    }
+
+    .download-bar {
+        justify-content: center;
+    }
+
     .download-btn {
         width: 100%;
     }

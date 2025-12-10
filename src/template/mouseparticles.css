@@ -39,3 +39,10 @@
 .block-mobile {
     display: none;
 }
+
+/* Respect prefers-reduced-motion at the CSS level too (extra safety) */
+@media (prefers-reduced-motion: reduce) {
+    .ball {
+        animation: none;
+    }
+}

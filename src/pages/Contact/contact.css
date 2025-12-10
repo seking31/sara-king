@@ -1,15 +1,25 @@
 .contact-form-container {
     color: var(--text-color);
     min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
 }
 
 .contact-form {
     max-width: 500px;
+    width: 100%;
     margin: auto;
     padding: calc(var(--spacing-unit) * 2);
     background: var(--primary-bg);
     border: 1px solid var(--accent-color);
     border-radius: 12px;
+}
+
+.contact-description {
+    margin-bottom: var(--spacing-unit);
+    line-height: 1.5;
 }
 
 .text-2xl {
@@ -33,10 +43,10 @@
 }
 
 .mb-1 {
-    font-size: x-large;
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
 }
 
+/* Inputs & textarea */
 .input-field {
     font-size: larger;
     width: 100%;
@@ -47,8 +57,9 @@
     color: var(--text-color);
 }
 
-.input-field:focus {
-    outline: none;
+.input-field:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
     box-shadow: 0 0 0 2px var(--accent-color);
 }
 
@@ -57,6 +68,7 @@
     resize: vertical;
 }
 
+/* Button */
 .submit-button {
     width: 100%;
     padding: var(--spacing-unit);
@@ -65,13 +77,19 @@
     border-radius: 5px;
     font-weight: bold;
     text-decoration: none;
-    transition: transform 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
     font-size: larger;
     border: none;
+    cursor: pointer;
 }
 
-.submit-button:hover {
+.submit-button:hover:not(:disabled) {
     transform: scale(1.05);
+}
+
+.submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 /* status message helpers (optional) */
@@ -81,6 +99,10 @@
 
 .text-blue-600 {
     color: #2563eb;
+}
+
+.form-status {
+    min-height: 1.2rem;
 }
 
 .text-green-600 {

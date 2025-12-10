@@ -1,18 +1,54 @@
 import React, { useEffect, useRef, useState } from "react";
-import './mouseparticles.css'
+import "./mouseparticles.css";
+
 export default function MouseParticles() {
   const wrapRef = useRef(null);
 
   const [pos, setPos] = useState({ x: -1, y: -1 });
   const posRef = useRef(pos);
+  const [motionEnabled, setMotionEnabled] = useState(false);
 
-  // keep ref synced with state
+  // Keep ref synced with state
   useEffect(() => {
     posRef.current = pos;
   }, [pos]);
 
-  // mouse + touch listeners
+  // Check prefers-reduced-motion and enable/disable effect
   useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) {
+      setMotionEnabled(true);
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const handleChange = () => {
+      setMotionEnabled(!mediaQuery.matches);
+    };
+
+    // Set initial
+    handleChange();
+
+    // Listen for changes
+    mediaQuery.addEventListener
+      ? mediaQuery.addEventListener("change", handleChange)
+      : mediaQuery.addListener(handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener
+        ? mediaQuery.removeEventListener("change", handleChange)
+        : mediaQuery.removeListener(handleChange);
+    };
+  }, []);
+
+  // Mouse + touch listeners
+  useEffect(() => {
+    if (!motionEnabled) {
+      // If motion is disabled, ensure position is reset
+      setPos({ x: -1, y: -1 });
+      return;
+    }
+
     const handleMouseMove = (e) => {
       setPos({ x: e.clientX, y: e.clientY });
     };
@@ -31,25 +67,27 @@ export default function MouseParticles() {
       setPos({ x: -1, y: -1 });
     };
 
+    const touchOptions = { passive: true };
+
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
-
-    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, touchOptions);
     window.addEventListener("touchend", handleTouchEnd);
     window.addEventListener("touchcancel", handleTouchEnd);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
-
-      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchmove", handleTouchMove, touchOptions);
       window.removeEventListener("touchend", handleTouchEnd);
       window.removeEventListener("touchcancel", handleTouchEnd);
     };
-  }, []);
+  }, [motionEnabled]);
 
-  // particle generator
+  // Particle generator
   useEffect(() => {
+    if (!motionEnabled) return;
+
     const wrap = wrapRef.current;
     if (!wrap) return;
 
@@ -70,24 +108,31 @@ export default function MouseParticles() {
       ball.style.left = `${x}px`;
       ball.style.top = `${y}px`;
 
-const colors = [
-  "hsla(316, 75%, 44%, 1)",    // magenta / deep pink
-  "hsla(210, 60%, 82%, 0.6)",  // light sky blue
-  "hsla(197, 100%, 55%, 1)",    // bright sky blue
-  "hsla(0, 0%, 100%, 1)",      // pure white
-  "hsla(12, 88%, 72%, 0.9)",   // peach / soft orange-red
-];
+      const colors = [
+        "hsla(316, 75%, 44%, 1)", // magenta / deep pink
+        "hsla(210, 60%, 82%, 0.6)", // light sky blue
+        "hsla(197, 100%, 55%, 1)", // bright sky blue
+        "hsla(0, 0%, 100%, 1)", // pure white
+        "hsla(12, 88%, 72%, 0.9)", // peach / soft orange-red
+      ];
 
-
-ball.style.background = colors[Math.floor(Math.random() * colors.length)];
-
+      ball.style.background =
+        colors[Math.floor(Math.random() * colors.length)];
 
       ball.addEventListener("animationend", () => ball.remove());
       wrap.appendChild(ball);
     }, 30);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [motionEnabled]);
 
-  return <div id="wrap" ref={wrapRef} />;
+  // Decorative only: hide from assistive tech
+  return (
+    <div
+      id="wrap"
+      ref={wrapRef}
+      aria-hidden="true"
+      role="presentation"
+    />
+  );
 }

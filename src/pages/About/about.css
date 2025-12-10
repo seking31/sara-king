@@ -94,6 +94,12 @@
     font-size: calc(var(--spacing-unit) * 1.5)
 }
 
+/* Provide a focus style for links inside about content (if not already global) */
+.about-content a:focus-visible {
+    outline: 2px solid black;
+    outline-offset: 2px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .about-content p {
