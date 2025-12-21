@@ -120,7 +120,7 @@ export default function LiveProjects() {
 
               <div className="card__section card__actions">
                 <a
-                  className="submit-button"
+                  className="btn"
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
