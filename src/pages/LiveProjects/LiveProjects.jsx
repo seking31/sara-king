@@ -127,10 +127,7 @@ export default function LiveProjects() {
                 <h2 id="preview-title" className="card__title">
                   Preview
                 </h2>
-                <p className="card__tagline" id="preview-desc">
-                  If the embedded preview doesn’t load (some hosts block iframes),
-                  use the “Live Demo” button.
-                </p>
+           
               </div>
 
               <div className="preview" role="region" aria-label="Live demo preview">
