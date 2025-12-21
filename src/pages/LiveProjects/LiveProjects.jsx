@@ -41,17 +41,7 @@ export default function LiveProjects() {
             {/* Use nav + aria-label so screen readers know what these links are */}
             <nav className="project-links" aria-label="Project links">
               <ul className="pill-row pill-row--links">
-                <li>
-                  <a
-                    className="btn"
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Open live demo in a new tab"
-                  >
-                    Live Demo <span className="sr-only">(opens in new tab)</span>
-                  </a>
-                </li>
+     
 
                 {project.clientRepoUrl ? (
                   <li>
@@ -120,7 +110,7 @@ export default function LiveProjects() {
 
               <div className="card__section card__actions">
                 <a
-                  className="submit-button"
+                  className="btn"
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"

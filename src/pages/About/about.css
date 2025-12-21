@@ -77,7 +77,8 @@
 
 /* RIGHT SIDE */
 .about-content {
-    background: var(--primary-bg);
+    backdrop-filter: blur(8px);
+    background: #0000000f;
     max-width: 720px;
     padding: 1rem;
 }
