@@ -7,6 +7,7 @@ import Contact from './pages/Contact/Contact'
 import GitHubProjects from './pages/GitHubProjects/GitHubProjects'
 import MouseParticles from './template/MouseParticles'
 import BounceSquare from './components/BounceSquare/BounceSquare'
+import LiveProjects from './pages/LiveProjects/LiveProjects'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/projects" element={<GitHubProjects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/bounce" element={<BounceSquare />} />
+        <Route path="/live" element={<LiveProjects />} />
       </Routes>
     </main>
     </>

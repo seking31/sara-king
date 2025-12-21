@@ -208,7 +208,16 @@ export default function Navbar() {
               className="navbar__link"
               onClick={handleLinkClick}
             >
-              Projects
+              GitHub Projects
+            </Link>
+          </li>
+          <li className="navbar__item">
+            <Link
+              to="/live"
+              className="navbar__link"
+              onClick={handleLinkClick}
+            >
+             Live Projects
             </Link>
           </li>
           <li className="navbar__item">
