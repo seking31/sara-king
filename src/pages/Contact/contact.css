@@ -69,29 +69,6 @@
     resize: vertical;
 }
 
-/* Button */
-.submit-button {
-    width: 100%;
-    padding: var(--spacing-unit);
-    background: var(--accent-color);
-    color: var(--text-color);
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: transform 0.2s, opacity 0.2s;
-    font-size: larger;
-    border: none;
-    cursor: pointer;
-}
-
-.submit-button:hover:not(:disabled) {
-    transform: scale(1.05);
-}
-
-.submit-button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
 
 /* status message helpers (optional) */
 .mt-3 {
