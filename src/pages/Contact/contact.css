@@ -10,7 +10,6 @@
 .contact-form {
     max-width: 500px;
     width: 100%;
-    margin: auto;
     padding: calc(var(--spacing-unit) * 2);
     background: var(--primary-bg);
     border: 1px solid var(--accent-color);

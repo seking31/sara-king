@@ -8,6 +8,10 @@ export default function MouseParticles() {
   const posRef = useRef(pos);
   const [motionEnabled, setMotionEnabled] = useState(false);
 
+  // NEW: track whether the pointer is actively moving
+  const isMovingRef = useRef(false);
+  const idleTimerRef = useRef(null);
+
   // Keep ref synced with state
   useEffect(() => {
     posRef.current = pos;
@@ -26,10 +30,8 @@ export default function MouseParticles() {
       setMotionEnabled(!mediaQuery.matches);
     };
 
-    // Set initial
     handleChange();
 
-    // Listen for changes
     mediaQuery.addEventListener
       ? mediaQuery.addEventListener("change", handleChange)
       : mediaQuery.addListener(handleChange);
@@ -44,27 +46,47 @@ export default function MouseParticles() {
   // Mouse + touch listeners
   useEffect(() => {
     if (!motionEnabled) {
-      // If motion is disabled, ensure position is reset
       setPos({ x: -1, y: -1 });
+      isMovingRef.current = false;
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+      idleTimerRef.current = null;
       return;
     }
 
+    const markMoving = () => {
+      isMovingRef.current = true;
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+
+      // stop generating shortly after movement ends
+      idleTimerRef.current = setTimeout(() => {
+        isMovingRef.current = false;
+      }, 120); // tweak: 80–200ms usually feels good
+    };
+
     const handleMouseMove = (e) => {
+      markMoving();
       setPos({ x: e.clientX, y: e.clientY });
     };
 
     const handleMouseLeave = () => {
       setPos({ x: -1, y: -1 });
+      isMovingRef.current = false;
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+      idleTimerRef.current = null;
     };
 
     const handleTouchMove = (e) => {
       if (!e.touches || e.touches.length === 0) return;
       const touch = e.touches[0];
+      markMoving();
       setPos({ x: touch.clientX, y: touch.clientY });
     };
 
     const handleTouchEnd = () => {
       setPos({ x: -1, y: -1 });
+      isMovingRef.current = false;
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+      idleTimerRef.current = null;
     };
 
     const touchOptions = { passive: true };
@@ -81,6 +103,10 @@ export default function MouseParticles() {
       window.removeEventListener("touchmove", handleTouchMove, touchOptions);
       window.removeEventListener("touchend", handleTouchEnd);
       window.removeEventListener("touchcancel", handleTouchEnd);
+
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+      idleTimerRef.current = null;
+      isMovingRef.current = false;
     };
   }, [motionEnabled]);
 
@@ -93,6 +119,10 @@ export default function MouseParticles() {
 
     const interval = setInterval(() => {
       const m = posRef.current;
+
+      // NEW: only emit while actively moving
+      if (!isMovingRef.current) return;
+
       if (m.x < 0) return;
 
       const size = Math.floor(Math.random() * 30) + 15;
@@ -109,15 +139,14 @@ export default function MouseParticles() {
       ball.style.top = `${y}px`;
 
       const colors = [
-        "hsla(316, 75%, 44%, 1)", // magenta / deep pink
-        "hsla(210, 60%, 82%, 0.6)", // light sky blue
-        "hsla(197, 100%, 55%, 1)", // bright sky blue
-        "hsla(0, 0%, 100%, 1)", // pure white
-        "hsla(12, 88%, 72%, 0.9)", // peach / soft orange-red
+        "hsla(316, 75%, 44%, 1)",
+        "hsla(210, 60%, 82%, 0.6)",
+        "hsla(197, 100%, 55%, 1)",
+        "hsla(0, 0%, 100%, 1)",
+        "hsla(12, 88%, 72%, 0.9)",
       ];
 
-      ball.style.background =
-        colors[Math.floor(Math.random() * colors.length)];
+      ball.style.background = colors[Math.floor(Math.random() * colors.length)];
 
       ball.addEventListener("animationend", () => ball.remove());
       wrap.appendChild(ball);
@@ -126,13 +155,5 @@ export default function MouseParticles() {
     return () => clearInterval(interval);
   }, [motionEnabled]);
 
-  // Decorative only: hide from assistive tech
-  return (
-    <div
-      id="wrap"
-      ref={wrapRef}
-      aria-hidden="true"
-      role="presentation"
-    />
-  );
+  return <div id="wrap" ref={wrapRef} aria-hidden="true" role="presentation" />;
 }
