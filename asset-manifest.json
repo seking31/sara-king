@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sara-king/static/css/main.b126117c.css",
+    "main.css": "/sara-king/static/css/main.9ff99c03.css",
     "main.js": "/sara-king/static/js/main.6d493f5d.js",
     "static/js/453.535c40ea.chunk.js": "/sara-king/static/js/453.535c40ea.chunk.js",
     "static/media/sara2.png": "/sara-king/static/media/sara2.2dbbfb6dd1f88571fe8a.png",
@@ -11,12 +11,12 @@
     "static/media/saraNeg_ii.svg": "/sara-king/static/media/saraNeg_ii.82735ebc2d82a6cd001a38d49f2263de.svg",
     "static/media/linkedin-pink.svg": "/sara-king/static/media/linkedin-pink.28205e73b782284a4c306069927e18f8.svg",
     "index.html": "/sara-king/index.html",
-    "main.b126117c.css.map": "/sara-king/static/css/main.b126117c.css.map",
+    "main.9ff99c03.css.map": "/sara-king/static/css/main.9ff99c03.css.map",
     "main.6d493f5d.js.map": "/sara-king/static/js/main.6d493f5d.js.map",
     "453.535c40ea.chunk.js.map": "/sara-king/static/js/453.535c40ea.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b126117c.css",
+    "static/css/main.9ff99c03.css",
     "static/js/main.6d493f5d.js"
   ]
 }
