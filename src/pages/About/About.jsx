@@ -137,20 +137,16 @@ export default function About() {
             </motion.h1>
 
             <motion.p variants={item}>
-              Hi, I'm Sara, a full-stack developer who loves building thoughtful,
-              accessible digital experiences. I've worked across the stack using React, Next.js, TypeScript,
-              Node.js, MongoDB, and Express, always with an eye toward scalability and usability.
-            </motion.p>
+            Hi, I'm Sara, a full-stack developer who loves building thoughtful, accessible digital experiences. I've worked across the stack using React, Next.js, TypeScript, Node.js, MongoDB, and Express, always with an eye toward scalability and usability.
 
-            <motion.p variants={item}>
-              I currently work at Kohl's, where I also mentor interns in modern front-end practices,
-              build internal tools, and worked on the sign-in flow on the website. Before that, I contributed
-              to enterprise systems in industries such as retail, a popular pizza chain, and hospitals.
             </motion.p>
-
             <motion.p variants={item}>
-              Whether I'm writing a new component, improving data pipelines, or refining keyboard navigation, my goal
-              is the same: create intuitive, inclusive interfaces that genuinely help people.
+            I currently work at Kohl's, where I mentor interns in modern front-end practices, build internal tools, and contribute to customer-facing features, including the site's sign-in flow. Previously, I've helped build and maintain enterprise systems across industries such as retail, a major pizza chain, and healthcare.
+
+            </motion.p>
+            <motion.p variants={item}>
+            Whether I'm writing a new component, improving data pipelines, or refining keyboard navigation, my goal is the same: to create intuitive, inclusive interfaces that genuinely help people.
+
             </motion.p>
           </motion.section>
         </div>
