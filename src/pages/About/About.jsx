@@ -81,10 +81,6 @@ export default function About() {
 
   return (
     <div className="site-container" ref={sectionRef}>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-
       <Navbar />
 
       <main 

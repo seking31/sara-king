@@ -64,9 +64,11 @@
 
 /* Download bar */
 .download-bar {
+    border: none;
     display: flex;
     margin-bottom: calc(var(--spacing-unit) * 2);
-    width: 100%;
+    width: fit-content;
+    background: black;
     justify-content: flex-start;
 }
 
@@ -92,10 +94,11 @@
     transform: scale(1.05);
 }
 
-/* Focus-visible for keyboard users */
-.download-btn:focus-visible {
-    outline: 2px solid #000;
+/* Focus styles for keyboard users and programmatic focus */
+.download-btn:focus {
+    outline: 2px solid #fff;
     outline-offset: 3px;
+    box-shadow: 0 0 0 4px var(--accent-color);
 }
 
 /* Figure + image */
@@ -131,9 +134,7 @@
         padding: var(--spacing-unit);
     }
 
-    .download-bar {
-        justify-content: center;
-    }
+
 
     .download-btn {
         width: 100%;

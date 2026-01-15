@@ -55,10 +55,14 @@
     transition: transform 0.2s ease;
 }
 
-.social-links__icon:hover,
-.social-links__icon:focus-visible {
+.social-links__icon:hover {
     transform: scale(1.1);
-    outline: none;
+}
+
+.social-links a:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 /* ========== Menu (desktop default) ========== */
@@ -87,11 +91,16 @@
     transition: color 0.3s ease, box-shadow 0.2s ease;
 }
 
-.navbar__link:hover,
+.navbar__link:hover {
+    color: var(--accent-color);
+    box-shadow: 0 2px 0 var(--accent-color);
+}
+
 .navbar__link:focus-visible {
     color: var(--accent-color);
-    outline: none;
-    box-shadow: 0 2px 0 var(--accent-color);
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 2px;
 }
 
 /* ========== Hamburger button ========== */
@@ -114,6 +123,13 @@
     color: var(--text-color);
     text-decoration: none;
     font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar__toggle_close:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
 }
 
 /* Visible focus ring on toggle for keyboard users */

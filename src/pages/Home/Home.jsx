@@ -7,11 +7,6 @@ import heroImg from '../../assets/saraNeg_ii.svg'
 export default function Home() {
   return (
     <div className="site-container">
-      {/* Skip link for keyboard users */}
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-
       <Navbar />
 
       <main

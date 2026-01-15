@@ -19,11 +19,6 @@ export default function LiveProjects() {
 
   return (
     <div className="site-container">
-      {/* Skip link helps keyboard users bypass repeated nav */}
-      <a className="skip-link" href="#main">
-        Skip to main content
-      </a>
-
       <Navbar />
 
       <main id="main" tabIndex={-1}>

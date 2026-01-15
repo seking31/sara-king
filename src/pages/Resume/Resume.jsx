@@ -1,26 +1,27 @@
-import React from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import React, { useRef } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import resume from '../../assets/Sara E. King Resume 202512.png'
 import './resume.css'
 
 export default function Resume() {
-  const shouldReduceMotion = useReducedMotion()
   const pageHeadingId = 'resume-heading'
   const descId = 'resume-description'
+  const downloadRef = useRef(null)
 
-  const wrapperInitial = shouldReduceMotion ? {} : { opacity: 0, y: 30 }
-  const wrapperAnimate = shouldReduceMotion ? {} : { opacity: 1, y: 0 }
-  const barInitial = shouldReduceMotion ? {} : { opacity: 0, y: 15 }
-  const barAnimate = shouldReduceMotion ? {} : { opacity: 1, y: 0 }
-  const imageInitial = shouldReduceMotion ? {} : { opacity: 0, scale: 0.96 }
-  const imageAnimate = shouldReduceMotion ? {} : { opacity: 1, scale: 1 }
+  const handleSkipClick = (e) => {
+    e.preventDefault()
+    downloadRef.current?.focus()
+  }
+
 
   return (
     <div className="site-container">
-      {/* Skip link for keyboard users */}
-      <a href="#main-content" className="skip-link">
-        Skip to main content
+      <a
+        href="#download-resume"
+        className="skip-link"
+        onClick={handleSkipClick}
+      >
+        Skip to download button
       </a>
 
       <Navbar />
@@ -40,55 +41,29 @@ export default function Resume() {
           </p>
         </header>
 
-        <motion.div
+        <div
           className="resume-wrapper"
-          initial={wrapperInitial}
-          animate={wrapperAnimate}
-          transition={
-            shouldReduceMotion
-              ? undefined
-              : { duration: 0.6, type: 'spring', stiffness: 120 }
-          }
+     
         >
-          <motion.div
-            className="download-bar"
-            initial={barInitial}
-            animate={barAnimate}
-            transition={shouldReduceMotion ? undefined : { delay: 0.1 }}
-          >
-            <motion.a
+          <div className="download-bar">
+            <a
+              id="download-resume"
+              ref={downloadRef}
               href={resume}
               download
               className="download-btn"
               aria-label="Download resume as PNG file"
-              whileHover={
-                shouldReduceMotion
-                  ? undefined
-                  : {
-                      scale: 1.05,
-                      y: -3,
-                      boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
-                    }
-              }
-              whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
             >
               Download Resume (PNG)
-            </motion.a>
-          </motion.div>
+            </a>
+          </div>
 
-          {/* IMAGE-BASED RESUME */}
-          <motion.figure
+          <figure
             className="resume-figure"
             aria-describedby={descId}
-            initial={imageInitial}
-            animate={imageAnimate}
-            transition={
-              shouldReduceMotion
-                ? undefined
-                : { delay: 0.2, duration: 0.6, type: 'spring', stiffness: 180 }
-            }
+           
           >
-            <motion.img
+            <img
               src={resume}
               alt="Visual representation of the resume for Sara E. King, Full Stack Developer."
               className="resume-image"
@@ -96,8 +71,8 @@ export default function Resume() {
             <figcaption className="resume-figcaption sr-only">
               Image-based resume for Sara E. King.
             </figcaption>
-          </motion.figure>
-        </motion.div>
+          </figure>
+        </div>
       </main>
     </div>
   )

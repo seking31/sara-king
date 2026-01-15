@@ -127,10 +127,15 @@
     margin: 1em;
 }
 
-.btn:hover,
+.btn:hover {
+    color: white;
+    box-shadow: 0 2px 0 white;
+}
+
 .btn:focus-visible {
     color: white;
-    outline: none;
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
     box-shadow: 0 2px 0 white;
 }
 

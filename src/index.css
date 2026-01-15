@@ -94,6 +94,11 @@ body {
   transform: scale(1.05);
 }
 
+.submit-button:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 3px;
+}
+
 .submit-button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
