@@ -230,13 +230,13 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-         <button
-          className="navbar__toggle_close"
-          aria-label={isOpen ? 'Close main menu' : 'Open main menu'}
-          aria-expanded={isOpen}
-          aria-controls="primary-navigation-menu"
-          onClick={handleToggle}
-          ref={toggleRef}>X</button>
+            <button
+              className="navbar__toggle_close"
+              aria-label="Close main menu"
+              onClick={handleToggle}
+            >
+              X
+            </button>
           </li>
         </ul>
       </nav>

@@ -1,26 +1,25 @@
 // src/pages/About.js
 import React, { useEffect, useState, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import './about.css'
 import Navbar from '../../components/Navbar/Navbar'
 import headshot from '../../assets/sara2.png'
 
 export default function About() {
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   const sectionRef = useRef(null)
   const titleId = 'about-page-title'
 
-  // Detect touch / coarse pointer
-  const isTouchDevice =
-    typeof window !== 'undefined' &&
-    window.matchMedia &&
-    window.matchMedia('(hover: none) and (pointer: coarse)').matches
+  // Use framer-motion's hook for reduced motion preference
+  const prefersReducedMotion = useReducedMotion()
 
-  // Respect prefers-reduced-motion
-  const prefersReducedMotion =
-    typeof window !== 'undefined' &&
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  // Detect touch / coarse pointer on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      setIsTouchDevice(window.matchMedia('(hover: none) and (pointer: coarse)').matches)
+    }
+  }, [])
 
   // Hover animation only when allowed
   const hoverProps =
@@ -82,6 +81,10 @@ export default function About() {
 
   return (
     <div className="site-container" ref={sectionRef}>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       <Navbar />
 
       <main 
