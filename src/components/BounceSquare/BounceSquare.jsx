@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { motion, useMotionValue, useAnimationFrame, useReducedMotion } from "framer-motion"
 
 import "./bounce.css"
@@ -10,6 +10,7 @@ export default function BounceSquare() {
   const shouldReduceMotion = useReducedMotion()
 
   const [isDesktop, setIsDesktop] = useState(false)
+  const containerRef = useRef(null)
   const msg = "welcome to my website"
 
   // Track viewport width so we only slide on desktop
@@ -39,7 +40,7 @@ export default function BounceSquare() {
     y.set(yValue)
 
     if (isDesktop) {
-      const container = document.querySelector(".cube-container")
+      const container = containerRef.current
 
       if (container) {
         const containerWidth = container.offsetWidth
@@ -58,15 +59,15 @@ export default function BounceSquare() {
   return (
     <div className="cube-wrapper">
       {/* Accessible, stable text for screen readers and users who struggle with motion */}
-      <p className="visually-hidden" aria-live="polite">
+      <p className="sr-only" aria-live="polite">
         {msg}
       </p>
 
       <div
         className="cube-container"
+        ref={containerRef}
         role="img"
         aria-label={msg}
-        aria-hidden={shouldReduceMotion ? undefined : false}
       >
         <motion.div
           className="cube"

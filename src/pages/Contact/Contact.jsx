@@ -42,9 +42,14 @@ export default function ContactForm() {
 
   return (
     <div className="site-container">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       <Navbar />
 
       <main
+        id="main-content"
         className="contact-form-container"
         aria-labelledby="contact-heading"
       >

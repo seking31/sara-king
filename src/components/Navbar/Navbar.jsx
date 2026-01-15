@@ -109,7 +109,7 @@ export default function Navbar() {
           animate="animate"
         >
           <Link to="/" className="navbar__brand">
-            <span className="visually-hidden">Home</span>
+            <span className="sr-only">Home</span>
             <motion.strong
               className="navbar__heart navbar__heart--right"
               variants={heartVariants}
@@ -230,13 +230,13 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-         <button
-          className="navbar__toggle_close"
-          aria-label={isOpen ? 'Close main menu' : 'Open main menu'}
-          aria-expanded={isOpen}
-          aria-controls="primary-navigation-menu"
-          onClick={handleToggle}
-          ref={toggleRef}>X</button>
+            <button
+              className="navbar__toggle_close"
+              aria-label="Close main menu"
+              onClick={handleToggle}
+            >
+              X
+            </button>
           </li>
         </ul>
       </nav>
